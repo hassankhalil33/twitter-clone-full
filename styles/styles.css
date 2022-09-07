@@ -8,3 +8,17 @@ img {
   height: 100%;
   margin-top: 15px;
 }
+
+/* Login Page */
+
+.login-container {
+  padding: auto;
+  height: 600px;
+  width: 600px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  background-color: white;
+  border-radius: 20px;
+}
