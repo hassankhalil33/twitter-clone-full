@@ -22,3 +22,18 @@ img {
   background-color: white;
   border-radius: 20px;
 }
+
+/* Login Navigation Bar */
+.login-nav-bar {
+  position: fixed;
+  top: 0;
+  width: 600px;
+  height: 60px;
+  background-color: white;
+}
+.login-twitter-logo {
+  width: 30px;
+  height: 30px;
+  margin: auto;
+}
+
