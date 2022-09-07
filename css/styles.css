@@ -13,7 +13,8 @@ img {
 
 .login-container {
   padding: auto;
-  height: 600px;
+  padding-top: 60px;
+  height: 540px;
   width: 600px;
   display: flex;
   flex-direction: column;
@@ -34,6 +35,34 @@ img {
 .login-twitter-logo {
   width: 30px;
   height: 30px;
+  margin: auto;
+}
+
+.login-title {
+  padding: 35px 150px;
+  align-self: baseline;
+}
+
+.login-flex-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  flex-grow: 1;
+}
+.login-btn {
+  border-radius: 30px;
+  width: 300px;
+  border-color: #d3d3d3;
+  border-width: 1px;
+  background-color: white;
+  height: 40px;
+  text-align: center;
+}
+.login-logo-btn {
+  width: 13px;
+  height: 13px;
+  padding-top: 1px;
   margin: auto;
 }
 
