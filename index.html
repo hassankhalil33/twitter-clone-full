@@ -4,55 +4,89 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/reset.css" />
     <link rel="stylesheet" href="css/styles.css" />
-    <title>Login to Twitter / Twitter</title>
+    <title>Twitter. It's what's happening</title>
   </head>
   <body>
-    <!-- Navigation Bar -->
-    <nav class="login-nav-bar">
-      <div class="login-twitter-logo">
-        <img src="images/twitter-logo.png" alt="Twitter logo" />
-      </div>
-    </nav>
-
-    <div class="login-container">
-      <div class="login-title">
-        <h1>Sign in to Twitter</h1>
-      </div>
-
-      <div class="login-flex-container">
-        <button class="login-btn">
-          <img
-            src="images/google-icon.png"
-            alt="Google icon"
-            class="login-logo-btn"
+    <div class="container">
+      <img src="images/twitter-cover.jpeg" alt="" />
+      <div class="register-content">
+        <div class="logo-twitter">
+          <img src="images/twitter-logo.png" alt="" />
+        </div>
+        <h1>Happening now</h1>
+        <p>Join Twitter today.</p>
+        <form action="">
+          <label for="name">Name</label>
+          <input
+            id="name"
+            type="text"
+            placeholder="Enter you name here"
+            required
           />
-          Sign in with Google
-        </button>
-        <button class="login-btn">
-          <img
-            src="images/apple-icon.png"
-            alt="Apple icon"
-            class="login-logo-btn"
+          <label for="date-birth">Date of birth</label>
+          <input id="date-birth" type="date" required />
+          <label for="username">Username</label>
+          <input
+            id="username"
+            type="text"
+            placeholder="Enter a new username here"
+            required
           />
-          Sign in with Apple
-        </button>
-        <p class="login-text">or</p>
-        <textarea
-          name=""
-          id=""
-          cols="30"
-          rows="3"
-          placeholder="phone, email or username"
-          class="login-text-area"
-        ></textarea>
-        <button class="login-btn login-btn-next">Next</button>
-        <button class="login-btn login-btn-forget">Forgot password?</button>
-      </div>
-      <div class="login-footer">
-        <p>
-          Don't have an account? <a href="" class="login-anchor">Sign up</a>
-        </p>
+          <label for="password">Password</label>
+          <input
+            id="password"
+            type="password"
+            placeholder="Enter a new password here"
+            required
+          />
+          <label for="email">Email</label>
+          <input
+            id="email"
+            type="email"
+            placeholder="Enter your email here"
+            required
+          />
+          <label for="phone">Phone Number</label>
+          <input
+            id="phone"
+            type="text"
+            placeholder="Enter your phone number here"
+          />
+          <button type="submit">Sign up</button>
+          <p>
+            By signing up, you agree to the <a href="">Terms of Service</a> and
+            <a href="">Privacy Policy</a> , including
+            <a href=""> Cookie Use.</a>
+          </p>
+        </form>
+        <div>
+          <p>Already have an account?</p>
+          <a href="">Sign in</a>
+        </div>
+        <footer>
+          <p>
+            <a href="">About</a>
+            <a href="">Help Center</a>
+            <a href="">Terms of Service</a>
+            <a href="">Privacy Policy</a>
+            <a href="">Cookie Policy</a>
+            <a href="">Accessibility </a>
+            <a href="">Ads info </a>
+            <a href="">Blog </a>
+            <a href="">Status </a>
+            <a href="">Careers </a>
+            <a href="">Brand Resources </a>
+            <a href="">Advertising </a>
+            <a href="">Marketing </a>
+            <a href="">Twitter for Business </a>
+            <a href="">Developers </a>
+            <a href="">Directory </a>
+            <a href="">Settings </a>
+            © 2022 Twitter, Inc.
+          </p>
+        </footer>
       </div>
     </div>
   </body>
