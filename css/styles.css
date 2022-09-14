@@ -64,11 +64,12 @@
   width: 24px;
   height: 24px;
   margin: 10px auto 0;
+ 
 }
 .login-container {
   width: 50vw;
   height: 300px;
-  border: solid 1px black;
+  border-radius: 10px;
 }
 .login-title {
   margin: 20px auto;
@@ -100,6 +101,16 @@
 }
 .login-container a:hover {
   text-decoration: underline;
+}
+.popup{
+  position: absolute;
+  top: 10vh;
+  left: 20vw;
+  background-color: white;
+  visibility: hidden;
+}
+.popup-visible{
+  visibility: visible;
 }
 
 /* utilities */
