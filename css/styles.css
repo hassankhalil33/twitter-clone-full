@@ -2,12 +2,10 @@
 .signup-img {
   width: 55vw;
   height: 500px;
-  border: solid 1px black;
 }
 .register-content {
   flex: 0 0 40vw;
   height: 500px;
-  border: solid 1px black;
 }
 .register-logo-twitter {
   width: 24px;
@@ -27,23 +25,38 @@
 }
 
 /* Register form */
+.register-form {
+  width: 100%;
+}
 .register-form label {
   padding: 1%;
   font-size: 12px;
 }
 .register-form input {
-  width: 80%;
+  width: 82%;
   padding: 1%;
   font-size: 9px;
+  border: 1px solid #999999;
+  border-radius: 4px;
 }
-.btn {
-  background-color: #1d9bf0;
-  border-radius: 20px;
-  border: none;
-  padding: 2% 6%;
-  margin-top: 1%;
-  color: white;
-  cursor: pointer;
+
+/* Register paragraph */
+.register-parag1 {
+  margin: 1% 0;
+  width: 82%;
+  font-size: 9px;
+}
+.register-parag1 a {
+  text-decoration: none;
+  color: #1d9bf0;
+}
+.register-parag1 a:hover {
+  text-decoration: underline;
+}
+.register-parag2 {
+  font-size: 12px;
+  font-weight: bold;
+  margin: 7% 0 4%;
 }
 
 /* utilities */
@@ -62,4 +75,20 @@
   display: flex;
   justify-content: flex-start;
   align-items: flex-start;
+}
+.btn {
+  border-radius: 20px;
+  border: none;
+  padding: 2% 6%;
+  margin-top: 1%;
+  cursor: pointer;
+}
+.btn-blue {
+  background-color: #1d9bf0;
+  color: white;
+}
+.btn-white {
+  background-color: white;
+  color: #1d9bf0;
+  border: solid 1px #999999;
 }
