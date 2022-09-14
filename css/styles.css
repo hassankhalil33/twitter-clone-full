@@ -1,0 +1,44 @@
+/* Hero */
+.signup-img {
+  width: 55vw;
+  height: 500px;
+  border: solid 1px  black;
+}
+.register-content {
+  flex: 0 0 40vw;
+  height: 500px;
+  border: solid 1px  black;
+}
+.register-logo-twitter {
+  width: 24px;
+  height: 24px;
+  margin: 24px;
+}
+.register-title {
+  font-size: 36px;
+  font-weight: bolder;
+  margin: 10px 0;
+}
+.register-subtitle {
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 20px ;
+}
+
+/* utilities */
+.container {
+  /* padding: 1%; */
+  margin: auto;
+  width: 100%;
+}
+.flex-column-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+.flex-container {
+  display: flex;
+  justify-content:flex-start;
+  align-items: flex-start;
+}
