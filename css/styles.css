@@ -2,17 +2,18 @@
 .signup-img {
   width: 55vw;
   height: 500px;
-  border: solid 1px  black;
+  border: solid 1px black;
 }
 .register-content {
   flex: 0 0 40vw;
   height: 500px;
-  border: solid 1px  black;
+  border: solid 1px black;
 }
 .register-logo-twitter {
   width: 24px;
   height: 24px;
-  margin: 24px;
+  margin: 15px;
+  margin-left: 0;
 }
 .register-title {
   font-size: 36px;
@@ -22,7 +23,27 @@
 .register-subtitle {
   font-size: 20px;
   font-weight: bold;
-  margin-bottom: 20px ;
+  margin-bottom: 20px;
+}
+
+/* Register form */
+.register-form label {
+  padding: 1%;
+  font-size: 12px;
+}
+.register-form input {
+  width: 80%;
+  padding: 1%;
+  font-size: 9px;
+}
+.btn {
+  background-color: #1d9bf0;
+  border-radius: 20px;
+  border: none;
+  padding: 2% 6%;
+  margin-top: 1%;
+  color: white;
+  cursor: pointer;
 }
 
 /* utilities */
@@ -39,6 +60,6 @@
 }
 .flex-container {
   display: flex;
-  justify-content:flex-start;
+  justify-content: flex-start;
   align-items: flex-start;
 }
