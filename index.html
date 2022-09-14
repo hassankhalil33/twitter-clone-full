@@ -8,8 +8,9 @@
     <link rel="stylesheet" href="css/styles.css" />
     <title>Twitter. It's what's happening</title>
   </head>
+  
   <body>
-    <div class="container flex-container">
+    <section class="container flex-container">
       <img class="signup-img" src="images/twitter-cover.jpeg" alt="" />
       <div class="container register-content flex-column-container">
         <div class="register-logo-twitter">
@@ -59,7 +60,33 @@
           <a class="btn btn-white">Sign in</a>
         </div>
       </div>
-    </div>
+    </section>
+
+    <!-- Login page -->
+    <section>
+      <img src="images/twitter-logo.png" alt="" />
+      <form class="login-container">
+        <h2>Sign in to Twitter</h2>
+        <label for="identification-input">Email or Username</label>
+        <input
+          id="identification-input"
+          type="text"
+          placeholder="Enter your email or username here"
+          required />
+        <label for="password-input">Password</label>
+        <input
+          id="password-input"
+          type="text"
+          placeholder="Enter your password here"
+          required />
+        <button class="btn btn-blue" type="submit">Sign in</button>
+      </form>
+      <p>
+        Don't have an account?
+        <a href="">Sign up</a>
+      </p>
+    </section>
+
     <footer>
       <p>
         <a href="">About</a>
