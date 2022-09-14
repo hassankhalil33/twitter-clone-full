@@ -18,14 +18,22 @@ $check = $mysql -> prepare(
 $check -> execute();
 $array = $check -> get_result();
 
-echo json_encode($array);
+$response = [];
+
+while($i = $array -> fetch_assoc()){
+    $response[] = $i;
+}
+
+if ($response) {
+    die ("error: username / email already in use.");
+};
 
 $query = $mysql -> prepare(
     "INSERT INTO users(user_type, f_name, l_name, username, `password`, email, date_of_joining)
     VALUE ('$userType', ?, ?, ?, '$password', ?, '$dateJoined')");
 
 if ($query === FALSE) {
-    die ("Error: " . $mysql -> error);
+    die ("error: " . $mysql -> error);
 }
 
 $query -> bind_param("ssss", $firstName, $lastName, $userName, $email);
