@@ -59,6 +59,49 @@
   margin: 7% 0 4%;
 }
 
+/* Login page */
+.login-logo-twitter {
+  width: 24px;
+  height: 24px;
+  margin: 10px auto 0;
+}
+.login-container {
+  width: 50vw;
+  height: 300px;
+  border: solid 1px black;
+}
+.login-title {
+  margin: 20px auto;
+}
+.login-form {
+  width: 100%;
+  padding: 0 60px;
+  margin-bottom: 20px;
+}
+.login-form label {
+  padding: 2%;
+  font-size: 12px;
+}
+.login-form input {
+  width: 100%;
+  padding: 2%;
+  font-size: 9px;
+  border: 1px solid #999999;
+  border-radius: 4px;
+}
+.login-container p {
+  padding-left: 60px;
+  font-size: 12px;
+  font-weight: bold;
+}
+.login-container a {
+  text-decoration: none;
+  color: #1d9bf0;
+}
+.login-container a:hover {
+  text-decoration: underline;
+}
+
 /* utilities */
 .container {
   /* padding: 1%; */
