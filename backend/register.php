@@ -22,7 +22,7 @@ $response = [];
 
 while($i = $array -> fetch_assoc()){
     $response[] = $i;
-}
+};
 
 if ($response) {
     die ("error: username / email already in use.");
@@ -34,7 +34,7 @@ $query = $mysql -> prepare(
 
 if ($query === FALSE) {
     die ("error: " . $mysql -> error);
-}
+};
 
 $query -> bind_param("ssss", $firstName, $lastName, $userName, $email);
 $query -> execute();
