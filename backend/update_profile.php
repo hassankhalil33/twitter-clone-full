@@ -1,6 +1,7 @@
 <?php
 
 include("connection.php");
+include("session.php");
 
 // Init Variables
 
@@ -8,6 +9,7 @@ $firstName = $_POST["firstName"];
 $lastName = $_POST["lastName"];
 $photo = $_POST["photo"];
 $description = $_POST["description"];
+$userToken = $_POST["token"];
 
 // Functions
 
@@ -74,8 +76,12 @@ if (isset($description)) {
     $updateDesc = $dbDesc;
 };
 
-if ($tokenAlive) {
+//Check Token Then Update
+if (tokenAlive($userToken, $key)) {
     updateData("LambdaTiger", $mysql, $updateName, $updateLast, $updatePhoto, $updateDesc);
-}
+    die("updated successfully");
+} else {
+    die("token expired");
+};
 
 ?>
