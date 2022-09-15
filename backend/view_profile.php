@@ -6,16 +6,10 @@ include("connection.php");
 
 $userName = $_GET["userName"];
 
-// if (decodeToken($userToken) != $userName) {
-    
-// }
-
-// Functions
-
 function getData($user, $mysql) {
     $query = $mysql -> prepare(
         "SELECT username, f_name, l_name, `description`,
-        profile_pic, date_of_joining, 
+        profile_pic, date_of_joining 
         FROM users WHERE username = '$user'"
     );
     
@@ -31,7 +25,7 @@ function getData($user, $mysql) {
     return $response;
 };
 
-function getFollowed($user, $mysql) {
+function getFollows($user, $mysql) {
     $query = $mysql -> prepare(
         "SELECT COUNT(f.followed_user_id) FROM follows f, users u 
         WHERE u.username = '$user' AND u.id = f.user_id"
@@ -46,10 +40,6 @@ function getFollowed($user, $mysql) {
         $response[] = $i;
     };
 
-    return json_encode($response);
-};
-
-function getFollowers($user, $mysql) {
     $query = $mysql -> prepare(
         "SELECT COUNT(f.user_id) FROM follows f, users u 
         WHERE u.username = '$user' AND u.id = f.followed_user_id"
@@ -57,17 +47,28 @@ function getFollowers($user, $mysql) {
 
     $query -> execute();
     $array = $query -> get_result();
-    
-    $response = [];
-    
+
     while($i = $array -> fetch_assoc()) {
         $response[] = $i;
     };
 
-    return json_encode($response);
+    $response[0]["following"] = $response[0]["COUNT(f.followed_user_id)"];
+    unset($response[0]["COUNT(f.followed_user_id)"]);
+
+    $response[0]["followers"] = $response[1]["COUNT(f.user_id)"];
+    unset($response[1]);
+
+    return $response;
 };
 
-echo getFollowed($userName, $mysql);
-echo getFollowers($userName, $mysql);
+$data = getData($userName, $mysql);
+$follows = getFollows($userName, $mysql);
+$allData = array_merge($data, $follows);
+
+$allData[0]["following"] = $allData[1]["following"];
+$allData[0]["followers"] = $allData[1]["followers"];
+unset($allData[1]);
+
+echo json_encode($allData);
 
 ?>
