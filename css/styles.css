@@ -211,13 +211,11 @@ Home page
   color: #1d9bf0;
   border: solid 1px #999999;
 }
-.mid{
+.mid {
   width: 60vw;
-  position: fixed;
-  left: 20vw;
-  
+  margin-left: 20vw;
 }
-.header{
+.header {
   height: 8vh;
   width: 100%;
   position: fixed;
