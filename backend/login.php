@@ -36,7 +36,7 @@ if ($password === $passwordStored) {
     $myObj1 -> exp = "$currentTime" + 10800; //3 hours expiration
     $tokenPayload = json_encode($myObj1);
 
-    echo json_encode(tokenEncode($tokenHeader, $tokenPayload, $secretKey));
+    echo json_encode(tokenEncode($tokenHeader, $tokenPayload, $SECRETKEY));
 } else {
     echo "incorrect password";
 };

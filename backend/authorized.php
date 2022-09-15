@@ -7,6 +7,8 @@ include("token.php");
 $userName = $_POST["userName"];
 $userToken = $_POST["token"];
 
+// Main
+
 echo isAuthorized($userName, $userToken, $SECRETKEY);
 
 ?>

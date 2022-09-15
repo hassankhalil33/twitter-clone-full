@@ -29,7 +29,7 @@ function tokenDecode($token) {
     return base64_decode($payload[1]);
 };
 
-function tokenAlive($token, $key){
+function tokenAlive($token, $key) {
     if(! verifySignature($token, $key)) {
         return false;
     };
@@ -51,9 +51,14 @@ function isAuthorized($user, $token, $key) {
         return false;
     };
 
-    if (! $user = tokenDecode($token)) {
+    $decodedUser = tokenDecode($token);
+
+    if (! $user === $decodedUser) {
         return false;
     };
+
+    echo $user;
+    echo tokenDecode($token);
 
     return true;
 };

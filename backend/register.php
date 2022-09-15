@@ -32,7 +32,7 @@ $query = $mysql -> prepare(
     "INSERT INTO users(user_type, f_name, l_name, username, `password`, email, date_of_joining)
     VALUE ('$userType', ?, ?, ?, '$password', ?, '$dateJoined')");
 
-if ($query === FALSE) {
+if ($query === false) {
     die ("error: " . $mysql -> error);
 };
 
