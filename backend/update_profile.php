@@ -78,9 +78,11 @@ if (isset($description)) {
 };
 
 //Check Token Then Update
-if (isAuthorized($userName, $userToken, $secretKey)) {
+if (isAuthorized($userName, $userToken, $SECRETKEY)) {
     updateData($userName, $mysql, $updateName, $updateLast, $updatePhoto, $updateDesc);
     die("updated successfully");
+} else {
+    die("not authorized");
 };
 
 ?>

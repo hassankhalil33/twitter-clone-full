@@ -1,10 +1,12 @@
 <?php
 
+include("token.php");
+
 // Init Variables
 
-$userToken = $_POST["token"];
 $userName = $_POST["userName"];
+$userToken = $_POST["token"];
 
-
+echo isAuthorized($userName, $userToken, $SECRETKEY);
 
 ?>

@@ -2,7 +2,7 @@
 
 // Init Variables
 
-$secretKey = "CDr9tr&Rk1c50ealZRrxcX#4";
+$SECRETKEY = "CDr9tr&Rk1c50ealZRrxcX#4";
 
 $myObj = new stdClass();
 $myObj -> alg = "HS256";
@@ -24,22 +24,22 @@ function verifySignature($token, $key) {
     return ($explodedArray[2] === $encodedSignature);
 };
 
-function tokenDecode($userToken) {
-    $payload = explode(".", $userToken);
+function tokenDecode($token) {
+    $payload = explode(".", $token);
     return base64_decode($payload[1]);
 };
 
-function tokenAlive($userToken, $key){
-    if(! verifySignature($userToken, $key)) {
-        die("error: incorrect token.");
+function tokenAlive($token, $key){
+    if(! verifySignature($token, $key)) {
+        return false;
     };
 
-    $userData = tokenDecode($userToken);
+    $userData = tokenDecode($token);
     $result = json_decode($userData, true);
     $expTime = $result["exp"];
 
     if ($expTime < time()) {
-        die("session expired");
+        return false;
     };
 
     return true;
@@ -48,11 +48,11 @@ function tokenAlive($userToken, $key){
 //Check if user is allowed to manipulate his own data
 function isAuthorized($user, $token, $key) {
     if (! tokenAlive($token, $key)) {
-        return;
+        return false;
     };
 
     if (! $user = tokenDecode($token)) {
-        die("incorrect username");
+        return false;
     };
 
     return true;
