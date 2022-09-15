@@ -19,7 +19,7 @@ function tokenEncode($header, $payload, $key) {
 
 function tokenDecode($token) {
     $payload = explode(".", $token);
-    return $payload[1];
+    return base64_decode($payload[1]);
 };
 
 function verifySignature($token, $key) {
