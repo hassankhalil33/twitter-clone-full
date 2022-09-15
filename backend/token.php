@@ -28,11 +28,4 @@ function verifySignature($token, $key) {
     return ($explodedArray[2] === $encodedSignature);
 };
 
-$myObj2 -> username = "LambdaTiger";
-$myObj2 -> iat = "151623902";
-$tokenPayload = json_encode($myObj2);
-
-$output = tokenEncode($tokenHeader, $tokenPayload, $secretKey);
-echo tokenDecode($regExp, $output);
-
 ?>
