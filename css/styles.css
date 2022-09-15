@@ -1,3 +1,61 @@
+/*
+Utilities 
+*/
+
+a {
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: underline;
+}
+.container {
+  /* padding: 1%; */
+  margin: auto;
+  width: 100%;
+}
+.flex-column-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+.flex-container {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+.btn {
+  border-radius: 20px;
+  border: none;
+  padding: 2% 6%;
+  margin-top: 1%;
+  cursor: pointer;
+}
+.btn-blue {
+  background-color: #1d9bf0;
+  color: white;
+}
+.btn-white {
+  background-color: white;
+  color: #1d9bf0;
+  border: solid 1px #999999;
+}
+.btn-blue-light {
+  background-color: #e0f1f0;
+  color: #999999;
+}
+.mid {
+  width: 60vw;
+  margin-left: 20vw;
+}
+.header {
+  height: 8vh;
+  width: 100%;
+  position: fixed;
+  background-color: white;
+  color: black;
+}
+
 /* 
 Register Page
 */
@@ -179,7 +237,7 @@ Home page
 .home-tweet {
   height: 34vh;
   margin-top: 8vh;
-  border: 1px solid black;
+  border-bottom: 1px solid #999999;
 }
 .home-tweet img {
   width: 54px;
@@ -202,50 +260,23 @@ Home page
   text-decoration: none;
 }
 
-/*
- utilities 
- */
-
-.container {
-  /* padding: 1%; */
-  margin: auto;
-  width: 100%;
-}
-.flex-column-container {
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: flex-start;
-}
-.flex-container {
-  display: flex;
-  justify-content: flex-start;
-  align-items: flex-start;
-}
-.btn {
-  border-radius: 20px;
-  border: none;
-  padding: 2% 6%;
-  margin-top: 1%;
-  cursor: pointer;
-}
-.btn-blue {
-  background-color: #1d9bf0;
-  color: white;
-}
-.btn-white {
-  background-color: white;
-  color: #1d9bf0;
-  border: solid 1px #999999;
-}
-.mid {
-  width: 60vw;
-  margin-left: 20vw;
-}
-.header {
-  height: 8vh;
-  width: 100%;
+/* Right section */
+.right-container {
+  width: 20vw;
+  height: 100vh;
+  border: 1px solid #999999;
   position: fixed;
-  background-color: white;
-  color: black;
+  left: 80vw;
+  justify-content: space-between;
+  align-items: center;
+  padding: 3.5vw;
+  text-align: center;
+}
+
+.right-container div {
+  font-size: 12px;
+  color: #999999;
+}
+.right-container div a {
+  color: #999999;
 }
