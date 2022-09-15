@@ -10,10 +10,12 @@ $lastName = $_POST["lastName"];
 $photo = $_POST["photo"];
 $description = $_POST["description"];
 $userToken = $_POST["token"];
+$userName = tokenDecode($userToken);
 
 // Functions
 
 //Get User Data
+
 function getData ($user, $mysql) {
     $query = $mysql -> prepare(
         "SELECT f_name, l_name, `description`, profile_pic FROM users
@@ -46,7 +48,7 @@ function updateData ($user, $mysql, $name, $last, $desc, $pic) {
 
 // Main
 
-$json = getData("LambdaTiger", $mysql);
+$json = getData($userName, $mysql);
 $dbName = $json[0]["f_name"];
 $dbLast = $json[0]["l_name"];
 $dbPhoto = $json[0]["profile_pic"];
@@ -78,7 +80,7 @@ if (isset($description)) {
 
 //Check Token Then Update
 if (tokenAlive($userToken, $key)) {
-    updateData("LambdaTiger", $mysql, $updateName, $updateLast, $updatePhoto, $updateDesc);
+    updateData($userName, $mysql, $updateName, $updateLast, $updatePhoto, $updateDesc);
     die("updated successfully");
 } else {
     die("token expired");

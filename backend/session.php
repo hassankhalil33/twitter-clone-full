@@ -2,7 +2,15 @@
 
 include("token.php");
 
+//Get Key from token.php
 $key = $secretKey;
+
+// Functions
+
+function tokenDecode($userToken) {
+    $payload = explode(".", $userToken);
+    return base64_decode($payload[1]);
+};
 
 function tokenAlive($userToken, $key){
     if(! verifySignature($userToken, $key)) {

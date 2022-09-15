@@ -18,11 +18,6 @@ function tokenEncode($header, $payload, $key) {
     return ("$encodedHeader" . "." . "$encodedPayload" . "." . "$encodedSignature");
 };
 
-function tokenDecode($token) {
-    $payload = explode(".", $token);
-    return base64_decode($payload[1]);
-};
-
 function verifySignature($token, $key) {
     $explodedArray = explode(".", $token);
     $encodedSignature = hash_hmac("sha256", "$explodedArray[0]" . "." . "$explodedArray[1]", $key);
