@@ -34,9 +34,9 @@ if ($password === $passwordStored) {
     $myObj1 -> username = "$userName";
     $myObj1 -> iat = "$currentTime";
     $myObj1 -> exp = "$currentTime" + 10800; //3 hours expiration
-    $tokenHPayload = json_encode($myObj1);
+    $tokenPayload = json_encode($myObj1);
 
-    echo json_encode(tokenEncode($tokenHeader, $tokenHPayload, $secretKey));
+    echo json_encode(tokenEncode($tokenHeader, $tokenPayload, $secretKey));
 } else {
     echo "incorrect password";
 };

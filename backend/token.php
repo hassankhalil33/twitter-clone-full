@@ -4,6 +4,7 @@
 
 $secretKey = "CDr9tr&Rk1c50ealZRrxcX#4";
 
+$myObj = new stdClass();
 $myObj -> alg = "HS256";
 $myObj -> typ = "JWT";
 $tokenHeader = json_encode($myObj);
