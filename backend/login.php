@@ -37,9 +37,8 @@ if ($password === $passwordStored) {
     $tokenHPayload = json_encode($myObj1);
 
     echo json_encode(tokenEncode($tokenHeader, $tokenHPayload, $secretKey));
-    die("logged in successfully");
 } else {
-    die("incorrect password");
+    echo "incorrect password";
 };
 
 ?>
