@@ -17,13 +17,15 @@ function tokenEncode($header, $payload, $key) {
     return ("$encodedHeader" . "." . "$encodedPayload" . "." . "$encodedSignature");
 };
 
-function tokenDecode($exp, $token) {
+function tokenDecode($token) {
     $payload = explode(".", $token);
     return $payload[1];
 };
 
-function verifySignature() {
-
+function verifySignature($token, $key) {
+    $explodedArray = explode(".", $token);
+    $encodedSignature = hash_hmac("sha256", "$explodedArray[0]" . "." . "$explodedArray[1]", $key);
+    return ($explodedArray[2] === $encodedSignature);
 };
 
 $myObj2 -> username = "LambdaTiger";
