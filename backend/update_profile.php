@@ -16,7 +16,7 @@ $userName = tokenDecode($userToken);
 
 //Get User Data
 
-function getData ($user, $mysql) {
+function getData($user, $mysql) {
     $query = $mysql -> prepare(
         "SELECT f_name, l_name, `description`, profile_pic FROM users
         WHERE username = '$user'"
@@ -35,7 +35,7 @@ function getData ($user, $mysql) {
 };
 
 // Update Data
-function updateData ($user, $mysql, $name, $last, $desc, $pic) {
+function updateData($user, $mysql, $name, $last, $desc, $pic) {
     $query = $mysql -> prepare(
         "UPDATE users SET f_name = '$name', l_name = '$last',
         `description` = '$desc', profile_pic = '$pic'
