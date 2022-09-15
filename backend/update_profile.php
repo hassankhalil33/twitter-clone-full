@@ -10,7 +10,7 @@ $lastName = $_POST["lastName"];
 $photo = $_POST["photo"];
 $description = $_POST["description"];
 $userToken = $_POST["token"];
-$userName = tokenDecode($userToken);
+$userName = $_POST("userName");
 
 // Functions
 
@@ -82,8 +82,6 @@ if (isset($description)) {
 if (tokenAlive($userToken, $key)) {
     updateData($userName, $mysql, $updateName, $updateLast, $updatePhoto, $updateDesc);
     die("updated successfully");
-} else {
-    die("token expired");
 };
 
 ?>
