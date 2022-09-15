@@ -1,7 +1,7 @@
 /*
 Utilities 
 */
-body{
+body {
   font-family: "Roboto", sans-serif;
   font-size: 22px;
 }
@@ -59,8 +59,8 @@ a:hover {
   color: black;
 }
 .icons {
-  width: 16px;
-  height: 16px;
+  width: 22px;
+  height: 22px;
 }
 
 /* 
@@ -199,28 +199,46 @@ Home page
   justify-content: space-between;
 }
 .navigation-logo {
-  width: 54px;
-  height: 54px;
-  padding: 18px;
+  width: 22px;
+  height: 22px;
+  margin-left: 3%;
 }
-.navigation a {
-  text-decoration: none;
+.nav-tab {
   font-size: 1.5vw;
   width: 13vw;
+  border-radius: 8px;
+  padding: 3%;
 }
-.navigation a:hover {
-  text-decoration: underline;
+.nav-tab:hover {
+  text-decoration: none;
+  background-color: #e9e6e6;
+}
+.navigation span {
+  padding-left: 5px;
+  align-self: center;
+}
+.tab-selected {
+  color: black;
+  font-weight: bold;
+}
+.tab-not-selected {
+  color: #999999;
 }
 .btn-nav {
   text-align: center;
+  padding: 5px;
+}
+.btn-nav:hover {
+  text-decoration: none;
+  background-color: #1a8cd8;
 }
 .pp-name-username {
   font-size: 1.5vw;
   width: 13vw;
 }
 .pp-name-username img {
-  width: 36px;
-  height: 36px;
+  width: 30px;
+  height: 30px;
   padding: 0;
   border-radius: 36px;
   display: inline-block;
