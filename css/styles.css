@@ -175,6 +175,33 @@ Home page
   color: #999999;
 }
 
+/* Tweet */
+.home-tweet {
+  height: 34vh;
+  margin-top: 8vh;
+  border: 1px solid black;
+}
+.home-tweet img {
+  width: 54px;
+  height: 54px;
+  padding: 0;
+}
+.home-tweet-form {
+  width: 100%;
+}
+.home-tweet-form textarea {
+  width: 100%;
+  border: none;
+  padding-top: 20px;
+  flex: 1 0 80%;
+  font-size: 1.5vw;
+  border-bottom: #999999 1px solid;
+  margin-bottom: 2%;
+}
+.home-tweet-btn {
+  text-decoration: none;
+}
+
 /*
  utilities 
  */
