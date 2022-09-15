@@ -55,6 +55,10 @@ a:hover {
   background-color: white;
   color: black;
 }
+.icons {
+  width: 16px;
+  height: 16px;
+}
 
 /* 
 Register Page
@@ -239,7 +243,7 @@ Home page
   margin-top: 8vh;
   border-bottom: 1px solid #999999;
 }
-.home-tweet img {
+.home-tweet > img {
   width: 54px;
   height: 54px;
   padding: 0;
