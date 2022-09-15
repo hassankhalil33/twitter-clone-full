@@ -27,10 +27,28 @@ function getData ($user, $mysql) {
         $response[] = $i;
     };
 
-    return json_encode($response);
+    return $response;
+};
+
+// Update Data
+function updateData ($user, $mysql, $name, $last, $desc, $pic) {
+    $query = $mysql -> prepare(
+        "UPDATE users SET f_name = '$name', l_name = '$last',
+        `description` = '$desc', profile_pic = '$pic'
+        WHERE username = '$user'"
+    );
+    
+    $query -> execute();
+    return true;
 };
 
 // Main
+
+$json = getData("LambdaTiger", $mysql);
+$dbName = $json[0]["f_name"];
+$dbLast = $json[0]["l_name"];
+$dbPhoto = $json[0]["profile_pic"];
+$dbDesc = $json[0]["description"];
 
 if (isset($firstName)) {
     $updateName = $firstName;
@@ -56,6 +74,8 @@ if (isset($description)) {
     $updateDesc = $dbDesc;
 };
 
-echo getData ("LambdaTiger", $mysql);
+if ($tokenAlive) {
+    updateData("LambdaTiger", $mysql, $updateName, $updateLast, $updatePhoto, $updateDesc);
+}
 
 ?>
