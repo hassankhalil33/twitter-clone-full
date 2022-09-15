@@ -1,6 +1,6 @@
 <?php
 
-include("connection");
+include("connection.php");
 
 // Init Variables
 
@@ -12,7 +12,7 @@ $description = $_POST["description"];
 // Functions
 
 //Get User Data
-function getData ($user) {
+function getData ($user, $mysql) {
     $query = $mysql -> prepare(
         "SELECT f_name, l_name, `description`, profile_pic FROM users
         WHERE username = '$user'"
@@ -29,6 +29,8 @@ function getData ($user) {
 
     return json_encode($response);
 };
+
+// Main
 
 if (isset($firstName)) {
     $updateName = $firstName;
@@ -53,5 +55,7 @@ if (isset($description)) {
 } else {
     $updateDesc = $dbDesc;
 };
+
+echo getData ("LambdaTiger", $mysql);
 
 ?>
