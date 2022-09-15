@@ -10,12 +10,11 @@ $lastName = $_POST["lastName"];
 $photo = $_POST["photo"];
 $description = $_POST["description"];
 $userToken = $_POST["token"];
-$userName = $_POST("userName");
+$userName = $_POST["userName"];
 
 // Functions
 
 //Get User Data
-
 function getData($user, $mysql) {
     $query = $mysql -> prepare(
         "SELECT f_name, l_name, `description`, profile_pic FROM users
@@ -47,6 +46,10 @@ function updateData($user, $mysql, $name, $last, $desc, $pic) {
 };
 
 // Main
+
+if (! isAuthorized($userName, $userToken, $secretKey)) {
+    die("not authorized");
+};
 
 $json = getData($userName, $mysql);
 $dbName = $json[0]["f_name"];

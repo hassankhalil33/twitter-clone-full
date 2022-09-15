@@ -24,4 +24,30 @@ function verifySignature($token, $key) {
     return ($explodedArray[2] === $encodedSignature);
 };
 
+function tokenDecode($userToken) {
+    $payload = explode(".", $userToken);
+    return base64_decode($payload[1]);
+};
+
+function tokenAlive($userToken, $key){
+    if(! verifySignature($userToken, $key)) {
+        die("error: incorrect token.");
+    };
+
+    $userData = tokenDecode($userToken);
+    $result = json_decode($userData, true);
+    $expTime = $result["exp"];
+
+    if ($expTime < time()) {
+        die("session expired");
+    };
+
+    return true;
+};
+
+//Check if user is allowed to manipulate his own data
+function isAuthorized($user, $token) {
+    return true;
+};
+
 ?>
