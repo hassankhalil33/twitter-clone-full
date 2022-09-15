@@ -1,3 +1,7 @@
+/* 
+Register Page
+*/
+
 /* Hero */
 .signup-img {
   width: 55vw;
@@ -59,12 +63,13 @@
   margin: 7% 0 4%;
 }
 
-/* Login page */
+/*
+Login page
+*/
 .login-logo-twitter {
   width: 24px;
   height: 24px;
   margin: 10px auto 0;
- 
 }
 .login-container {
   width: 50vw;
@@ -102,18 +107,78 @@
 .login-container a:hover {
   text-decoration: underline;
 }
-.popup{
+.popup {
   position: absolute;
   top: 10vh;
   left: 20vw;
   background-color: white;
   visibility: hidden;
 }
-.popup-visible{
+.popup-visible {
   visibility: visible;
 }
 
-/* utilities */
+/*  
+Home page 
+*/
+
+/* Navigation */
+.navigation {
+  width: 20vw;
+  height: 100vh;
+  border: 1px solid #999999;
+  padding: 3.5vw;
+  position: fixed;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.navigation-logo {
+  width: 54px;
+  height: 54px;
+  padding: 18px;
+}
+.navigation a {
+  text-decoration: none;
+  font-size: 1.5vw;
+  width: 13vw;
+}
+.navigation a:hover {
+  text-decoration: underline;
+}
+.btn-nav {
+  text-align: center;
+}
+.pp-name-usename {
+  font-size: 1.5vw;
+  width: 13vw;
+}
+.pp-name-username img {
+  width: 36px;
+  height: 36px;
+  padding: 0;
+  border-radius: 36px;
+  display: inline-block;
+}
+.pp-name-username div {
+  align-self: center;
+}
+.nav-name {
+  font-size: 1.5vw;
+  width: 9vw;
+  color: black;
+  font-weight: bold;
+}
+.nav-username {
+  font-size: 1.5vw;
+  width: 9vw;
+  color: #999999;
+}
+
+/*
+ utilities 
+ */
+
 .container {
   /* padding: 1%; */
   margin: auto;
