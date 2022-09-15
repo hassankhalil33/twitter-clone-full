@@ -9,6 +9,13 @@ if(! verifySignature($userToken, $secretKey)) {
 };
 
 $userData = tokenDecode($userToken);
-echo $userData;
+$result = json_decode($userData, true);
+$expTime = $result["exp"];
+
+if ($expTime < time()) {
+    die("session expired");
+};
+
+echo true;
 
 ?>
