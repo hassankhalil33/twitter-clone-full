@@ -149,7 +149,7 @@ Home page
 .btn-nav {
   text-align: center;
 }
-.pp-name-usename {
+.pp-name-username {
   font-size: 1.5vw;
   width: 13vw;
 }
@@ -210,4 +210,17 @@ Home page
   background-color: white;
   color: #1d9bf0;
   border: solid 1px #999999;
+}
+.mid{
+  width: 60vw;
+  position: fixed;
+  left: 20vw;
+  
+}
+.header{
+  height: 8vh;
+  width: 100%;
+  position: fixed;
+  background-color: white;
+  color: black;
 }
