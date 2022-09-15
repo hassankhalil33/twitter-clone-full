@@ -1,0 +1,5 @@
+<?php
+
+//Check Session Alive
+
+?>
