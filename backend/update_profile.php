@@ -9,6 +9,27 @@ $lastName = $_POST["lastName"];
 $photo = $_POST["photo"];
 $description = $_POST["description"];
 
+// Functions
+
+//Get User Data
+function getData ($user) {
+    $query = $mysql -> prepare(
+        "SELECT f_name, l_name, `description`, profile_pic FROM users
+        WHERE username = '$user'"
+    );
+    
+    $query -> execute();
+    $array = $query -> get_result();
+    
+    $response = [];
+    
+    while($i = $array -> fetch_assoc()) {
+        $response[] = $i;
+    };
+
+    return json_encode($response);
+};
+
 if (isset($firstName)) {
     $updateName = $firstName;
 } else {
