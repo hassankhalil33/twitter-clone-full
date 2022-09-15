@@ -1,7 +1,10 @@
 /*
 Utilities 
 */
-
+body{
+  font-family: "Roboto", sans-serif;
+  font-size: 22px;
+}
 a {
   text-decoration: none;
 }
