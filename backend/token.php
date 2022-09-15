@@ -7,7 +7,6 @@ $secretKey = "CDr9tr&Rk1c50ealZRrxcX#4";
 $myObj -> alg = "HS256";
 $myObj -> typ = "JWT";
 $tokenHeader = json_encode($myObj);
-echo $tokenHeader;
 
 // Functions
 
@@ -18,8 +17,9 @@ function tokenEncode($header, $payload, $key) {
     return ("$encodedHeader" . "." . "$encodedPayload" . "." . "$encodedSignature");
 };
 
-function tokenDecode() {
-
+function tokenDecode($exp, $token) {
+    $payload = explode(".", $token);
+    return $payload[1];
 };
 
 function verifySignature() {
@@ -29,8 +29,8 @@ function verifySignature() {
 $myObj2 -> username = "LambdaTiger";
 $myObj2 -> iat = "151623902";
 $tokenPayload = json_encode($myObj2);
-echo $tokenPayload;
 
-echo tokenEncode($tokenHeader, $tokenPayload, $secretKey);
+$output = tokenEncode($tokenHeader, $tokenPayload, $secretKey);
+echo tokenDecode($regExp, $output);
 
 ?>
