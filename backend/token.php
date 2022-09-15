@@ -46,7 +46,15 @@ function tokenAlive($userToken, $key){
 };
 
 //Check if user is allowed to manipulate his own data
-function isAuthorized($user, $token) {
+function isAuthorized($user, $token, $key) {
+    if (! tokenAlive($token, $key)) {
+        return;
+    };
+
+    if (! $user = tokenDecode($token)) {
+        die("incorrect username");
+    };
+
     return true;
 };
 

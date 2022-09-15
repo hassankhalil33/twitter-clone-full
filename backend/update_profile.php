@@ -1,7 +1,7 @@
 <?php
 
 include("connection.php");
-include("session.php");
+include("token.php");
 
 // Init Variables
 
@@ -47,10 +47,6 @@ function updateData($user, $mysql, $name, $last, $desc, $pic) {
 
 // Main
 
-if (! isAuthorized($userName, $userToken, $secretKey)) {
-    die("not authorized");
-};
-
 $json = getData($userName, $mysql);
 $dbName = $json[0]["f_name"];
 $dbLast = $json[0]["l_name"];
@@ -82,7 +78,7 @@ if (isset($description)) {
 };
 
 //Check Token Then Update
-if (tokenAlive($userToken, $key)) {
+if (isAuthorized($userName, $userToken, $secretKey)) {
     updateData($userName, $mysql, $updateName, $updateLast, $updatePhoto, $updateDesc);
     die("updated successfully");
 };
