@@ -1,0 +1,384 @@
+/*
+Utilities 
+*/
+body {
+  font-family: "Roboto", sans-serif;
+  font-size: 22px;
+}
+a {
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: underline;
+}
+.container {
+  /* padding: 1%; */
+  margin: auto;
+  width: 100%;
+}
+.flex-column-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+.flex-container {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+.btn {
+  border-radius: 20px;
+  border: none;
+  padding: 2% 6%;
+  margin-top: 1%;
+  cursor: pointer;
+}
+.btn-blue {
+  background-color: #1d9bf0;
+  color: white;
+}
+.btn-white {
+  background-color: white;
+  color: #1d9bf0;
+  border: solid 1px #999999;
+}
+.btn-blue-light {
+  background-color: #e0f1f0;
+  color: #999999;
+}
+.mid {
+  width: 60vw;
+  margin-left: 20vw;
+}
+.header {
+  height: 8vh;
+  width: 100%;
+  position: fixed;
+  background-color: white;
+  color: black;
+}
+.icons {
+  width: 22px;
+  height: 22px;
+}
+.hidden {
+  display: none;
+}
+
+/* 
+Register Page
+*/
+
+/* Hero */
+.signup-img {
+  width: 55vw;
+  height: 500px;
+}
+.register-content {
+  flex: 0 0 40vw;
+  height: 500px;
+}
+.register-logo-twitter {
+  width: 24px;
+  height: 24px;
+  margin: 15px;
+  margin-left: 0;
+}
+.register-title {
+  font-size: 36px;
+  font-weight: bolder;
+  margin: 10px 0;
+}
+.register-subtitle {
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+/* Register form */
+.register-form {
+  width: 100%;
+}
+.register-form label {
+  padding: 1%;
+  font-size: 12px;
+}
+.register-form input {
+  width: 82%;
+  padding: 1%;
+  font-size: 9px;
+  border: 1px solid #999999;
+  border-radius: 4px;
+}
+
+/* Register paragraph */
+.register-parag1 {
+  margin: 1% 0;
+  width: 82%;
+  font-size: 9px;
+}
+.register-parag1 a {
+  text-decoration: none;
+  color: #1d9bf0;
+}
+.register-parag1 a:hover {
+  text-decoration: underline;
+}
+.register-parag2 {
+  font-size: 12px;
+  font-weight: bold;
+  margin: 7% 0 4%;
+}
+
+/*
+Login page
+*/
+.login-logo-twitter {
+  width: 24px;
+  height: 24px;
+  margin: 10px auto 0;
+}
+.login-container {
+  width: 50vw;
+  height: 300px;
+  border-radius: 10px;
+}
+.login-title {
+  margin: 20px auto;
+}
+.login-form {
+  width: 100%;
+  padding: 0 60px;
+  margin-bottom: 20px;
+}
+.login-form label {
+  padding: 2%;
+  font-size: 12px;
+}
+.login-form input {
+  width: 100%;
+  padding: 2%;
+  font-size: 9px;
+  border: 1px solid #999999;
+  border-radius: 4px;
+}
+.login-container p {
+  padding-left: 60px;
+  font-size: 12px;
+  font-weight: bold;
+}
+.login-container a {
+  text-decoration: none;
+  color: #1d9bf0;
+}
+.login-container a:hover {
+  text-decoration: underline;
+}
+.popup {
+  position: absolute;
+  top: 10vh;
+  left: 20vw;
+  background-color: white;
+  visibility: hidden;
+}
+.popup-visible {
+  visibility: visible;
+}
+
+/*  
+Home page 
+*/
+
+/* Navigation */
+.navigation {
+  width: 20vw;
+  height: 100vh;
+  border: 1px solid #999999;
+  padding: 3.5vw;
+  position: fixed;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.navigation-logo {
+  width: 22px;
+  height: 22px;
+  margin-left: 3%;
+}
+.nav-tab {
+  font-size: 12px;
+  width: 13vw;
+  border-radius: 8px;
+  padding: 3%;
+}
+.nav-tab:hover {
+  text-decoration: none;
+  background-color: #e9e6e6;
+}
+.navigation span {
+  padding-left: 5px;
+  align-self: center;
+}
+.tab-selected {
+  color: black;
+  font-weight: bold;
+}
+.tab-not-selected {
+  color: #999999;
+}
+.btn-nav {
+  text-align: center;
+  padding: 5px;
+}
+.btn-nav:hover {
+  text-decoration: none;
+  background-color: #1a8cd8;
+}
+.pp-name-username {
+  font-size: 12px;
+  width: 13vw;
+}
+.pp-name-username img {
+  width: 30px;
+  height: 30px;
+  padding: 0;
+  border-radius: 36px;
+  display: inline-block;
+}
+.pp-name-username div {
+  align-self: center;
+}
+.nav-name {
+  font-size: 12px;
+  width: 9vw;
+  color: black;
+  font-weight: bold;
+}
+.nav-username {
+  font-size: 10px;
+  width: 9vw;
+  color: #999999;
+}
+
+/* Tweet */
+.home-tweet {
+  height: 126px;
+  margin-top: 8vh;
+  border-bottom: 1px solid #999999;
+}
+.home-tweet > img {
+  width: 54px;
+  height: 54px;
+  padding: 0;
+}
+.home-tweet-form {
+  width: 100%;
+}
+.home-tweet-form textarea {
+  width: 100%;
+  border: none;
+  padding-top: 20px;
+  flex: 1 0 80%;
+  font-size: 12px;
+  border-bottom: #999999 1px solid;
+}
+.home-tweet-form div {
+  width: 100%;
+  height: 40px;
+  justify-content: space-between;
+  align-items: center;
+}
+.home-tweet-form img:hover {
+  cursor: pointer;
+}
+.home-tweet-btn {
+  padding: 0 3%;
+  margin-right: 1.5vw;
+  align-self: flex-start;
+}
+.home-tweet-btn:hover {
+  text-decoration: none;
+  background-color: #1a8cd8;
+}
+
+/* Profile */
+.profile-info-section {
+  font-size: 12px;
+  color: #999999;
+  border-bottom: #999999 1px solid;
+}
+.profile-cover-photo {
+  width: 100%;
+  height: 30vh;
+  background-color: #999999;
+}
+.profile-pp {
+  width: 90px;
+  height: 90px;
+  border-radius: 100px;
+  border: 1px #999999 solid;
+}
+.profile-img-btn {
+  padding: 0 30px;
+  justify-content: space-between;
+  align-items: center;
+}
+.profile-img-btn a {
+  text-decoration: none;
+}
+.profile-img-btn a:hover {
+  background-color: #e9e6e6;
+}
+.profile-info {
+  padding: 0 30px;
+}
+.profile-info > * {
+  margin-bottom: 10px;
+}
+.profile-numbers a {
+  margin-right: 10px;
+}
+.profile-numbers a:hover {
+  cursor: pointer;
+}
+.profile-name,
+.profile-numbers span {
+  color: black;
+  font-weight: bold;
+}
+
+/* Right section */
+.right-container {
+  width: 20vw;
+  height: 100vh;
+  border: 1px solid #999999;
+  position: fixed;
+  left: 80vw;
+  justify-content: space-between;
+  align-items: center;
+  padding: 3.5vw;
+  text-align: center;
+}
+.search {
+  width: 100%;
+  cursor: inherit;
+  justify-content: flex-start;
+  align-items: center;
+}
+.search input {
+  font-size: 8px;
+  width: 80%;
+  background-color: inherit;
+  border: none;
+  border-radius: inherit;
+  padding: 5px 3px;
+}
+
+.right-container div {
+  font-size: 12px;
+  color: #999999;
+}
+.right-container div a {
+  color: #999999;
+}
