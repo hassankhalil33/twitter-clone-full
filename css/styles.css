@@ -286,10 +286,17 @@ Home page
   justify-content: space-between;
   align-items: center;
 }
+.home-tweet-form img:hover {
+  cursor: pointer;
+}
 .home-tweet-btn {
   padding: 0 3%;
   margin-right: 1.5vw;
   align-self: flex-start;
+}
+.home-tweet-btn:hover {
+  text-decoration: none;
+  background-color: #1a8cd8;
 }
 
 /* Right section */
