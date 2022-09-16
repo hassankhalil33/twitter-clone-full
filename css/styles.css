@@ -207,7 +207,7 @@ Home page
   margin-left: 3%;
 }
 .nav-tab {
-  font-size: 1.5vw;
+  font-size: 12px;
   width: 13vw;
   border-radius: 8px;
   padding: 3%;
@@ -236,7 +236,7 @@ Home page
   background-color: #1a8cd8;
 }
 .pp-name-username {
-  font-size: 1.5vw;
+  font-size: 12px;
   width: 13vw;
 }
 .pp-name-username img {
@@ -250,13 +250,13 @@ Home page
   align-self: center;
 }
 .nav-name {
-  font-size: 1.5vw;
+  font-size: 12px;
   width: 9vw;
   color: black;
   font-weight: bold;
 }
 .nav-username {
-  font-size: 1.5vw;
+  font-size: 10px;
   width: 9vw;
   color: #999999;
 }
@@ -280,7 +280,7 @@ Home page
   border: none;
   padding-top: 20px;
   flex: 1 0 80%;
-  font-size: 1.5vw;
+  font-size: 12px;
   border-bottom: #999999 1px solid;
 }
 .home-tweet-form div {
