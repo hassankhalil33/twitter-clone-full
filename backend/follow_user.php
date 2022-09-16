@@ -1,9 +1,13 @@
 <?php
 
+include("connection.php");
+
 $userName = $_POST["userName"];
 $followed = $_POST["followed"];
 
-function returnId($user) {
+//NEED TO ADD IF EXISTS TO UNFOLLOW
+
+function returnId($user, $mysql) {
     $check = $mysql -> prepare(
         "SELECT id FROM users
         WHERE username = '$user'"
@@ -15,11 +19,16 @@ function returnId($user) {
     $response = [];
     $response[] = $array -> fetch_assoc();
 
-    return $response;
+    // echo json_encode($response);
+
+    return $response[0]["id"];
 };
 
-$userId = returnId($userName);
-$followedId = returnId($followed);
+$userId = returnId($userName, $mysql);
+$followedId = returnId($followed, $mysql);
+
+echo json_encode($userId);
+echo json_encode($followedId);
 
 $query = $mysql -> prepare(
     "INSERT INTO follows(`user_id`, followed_user_id)
