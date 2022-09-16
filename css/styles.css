@@ -47,11 +47,11 @@ a:hover {
   background-color: #e0f1f0;
   color: #999999;
 }
-.mid {
+.home-mid {
   width: 60vw;
   margin-left: 20vw;
 }
-.header {
+.home-header {
   height: 8vh;
   width: 100%;
   position: fixed;
