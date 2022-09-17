@@ -1,5 +1,8 @@
 <?php
 
+header("Access-Control-Allow-Origin: *");
+header("Access-Control-Allow-Headers: *");
+
 include("connection.php");
 
 $userName = $_POST["userName"];
@@ -11,7 +14,7 @@ function checkFollowed($user, $follow, $mysql) {
         WHERE `user_id` = ? AND followed_user_id = ?"
     );
 
-    $check -> bind_param("s", $user);
+    $check -> bind_param("ss", $user, $follow);
     $check -> execute();
     $array = $check -> get_result();
 
