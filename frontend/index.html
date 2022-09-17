@@ -15,7 +15,7 @@
   <body>
     <section class="container flex-container">
       <img class="signup-img" src="images/twitter-cover.jpeg" alt="" />
-      <div class="container register-content flex-column-container">
+      <div class="container flex-column-container register-content">
         <div class="register-logo-twitter">
           <img src="images/twitter-logo.png" alt="" />
         </div>
@@ -36,18 +36,19 @@
             type="text"
             placeholder="Enter a new username here"
             required />
-          <label for="password">Password</label>
-          <input
-            id="password"
-            type="password"
-            placeholder="Enter a new password here"
-            required />
           <label for="email">Email</label>
           <input
             id="email"
             type="email"
             placeholder="Enter your email here"
             required />
+          <label for="password">Password</label>
+          <input
+            id="password"
+            type="password"
+            placeholder="Enter a new password here"
+            required />
+
           <button class="btn btn-blue" type="submit">Sign up</button>
         </form>
         <div>
@@ -60,7 +61,7 @@
             <a href="">Cookie Use.</a>
           </p>
           <p class="register-parag2">Already have an account?</p>
-          <a class="btn btn-white">Sign in</a>
+          <a class="btn btn-white register-signin">Sign in</a>
         </div>
       </div>
     </section>

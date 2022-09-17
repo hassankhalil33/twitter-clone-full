@@ -12,7 +12,6 @@ a:hover {
   text-decoration: underline;
 }
 .container {
-  /* padding: 1%; */
   margin: auto;
   width: 100%;
 }
@@ -30,8 +29,8 @@ a:hover {
 .btn {
   border-radius: 20px;
   border: none;
-  padding: 2% 6%;
-  margin-top: 1%;
+  padding: 10px 30px;
+  margin-top: 10px;
   cursor: pointer;
 }
 .btn-blue {
@@ -73,11 +72,11 @@ Register Page
 /* Hero */
 .signup-img {
   width: 55vw;
-  height: 500px;
+  height: 100vh;
 }
 .register-content {
-  flex: 0 0 40vw;
-  height: 500px;
+  flex: 0 1 40vw;
+  height: 100vh;
 }
 .register-logo-twitter {
   width: 24px;
@@ -86,12 +85,12 @@ Register Page
   margin-left: 0;
 }
 .register-title {
-  font-size: 36px;
+  font-size: 45px;
   font-weight: bolder;
   margin: 10px 0;
 }
 .register-subtitle {
-  font-size: 20px;
+  font-size: 30px;
   font-weight: bold;
   margin-bottom: 20px;
 }
@@ -101,13 +100,13 @@ Register Page
   width: 100%;
 }
 .register-form label {
-  padding: 1%;
-  font-size: 12px;
+  padding: 6px 0;
+  font-size: 16px;
 }
 .register-form input {
   width: 82%;
-  padding: 1%;
-  font-size: 9px;
+  padding: 6px;
+  font-size: 12px;
   border: 1px solid #999999;
   border-radius: 4px;
 }
@@ -116,19 +115,25 @@ Register Page
 .register-parag1 {
   margin: 1% 0;
   width: 82%;
-  font-size: 9px;
+  font-size: 12px;
 }
 .register-parag1 a {
-  text-decoration: none;
   color: #1d9bf0;
 }
 .register-parag1 a:hover {
   text-decoration: underline;
 }
 .register-parag2 {
-  font-size: 12px;
+  font-size: 16px;
   font-weight: bold;
-  margin: 7% 0 4%;
+  margin: 20px 0 15px;
+}
+.register-signin {
+  font-size: 16px;
+  padding: 7px 28px;
+}
+.register-signin:hover {
+  text-decoration: none;
 }
 
 /*
