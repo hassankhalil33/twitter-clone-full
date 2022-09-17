@@ -60,13 +60,17 @@
             <a href="">Cookie Use.</a>
           </p>
           <p class="register-parag2">Already have an account?</p>
-          <a class="btn btn-white register-signin">Sign in</a>
+          <a id="register-signin" class="btn btn-white register-signin">
+            Sign in
+          </a>
         </div>
       </div>
     </section>
 
     <!-- Login page -->
-    <section class="login-container flex-column-container popup">
+    <section
+      id="signin-container"
+      class="login-container flex-column-container popup popup-hidden">
       <img class="login-logo-twitter" src="images/twitter-logo.png" alt="" />
       <h2 class="login-title">Sign in to Twitter</h2>
       <form class="flex-column-container login-form">
@@ -86,7 +90,7 @@
       </form>
       <p>
         Don't have an account?
-        <a href="">Sign up</a>
+        <a id="login-signup-btn" href="">Sign up</a>
       </p>
     </section>
 

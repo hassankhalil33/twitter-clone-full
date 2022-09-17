@@ -64,6 +64,9 @@ a:hover {
 .hidden {
   display: none;
 }
+.popup-hidden {
+  visibility: hidden;
+}
 
 /* 
 Register Page
@@ -182,10 +185,6 @@ Login page
   top: 20vh;
   left: 30vw;
   background-color: white;
-  visibility: hidden;
-}
-.popup-visible {
-  visibility: visible;
 }
 
 /*  
