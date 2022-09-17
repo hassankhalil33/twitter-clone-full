@@ -6,6 +6,7 @@ header("Access-Control-Allow-Headers: *");
 include("connection.php");
 
 $searchQuery = $_POST["searchQuery"];
+$regEx = "/.*(" . $searchQuery . ").*/gi";
 
 function searchFor($search, $mysql) {
     $query = $mysql -> prepare(
