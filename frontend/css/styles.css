@@ -86,7 +86,7 @@ Register Page
   height: 100vh;
 }
 .register-content {
-  flex: 0 1 40vw;
+  padding-left: 20px;
   min-height: 100vh;
   justify-content: center;
 }
@@ -110,26 +110,27 @@ Register Page
 /* Register form */
 .register-form {
   width: 100%;
+  padding-right: 20px;
 }
 .register-form label {
   padding: 6px 0;
   font-size: 16px;
 }
 .register-form input {
-  width: 82%;
+  width: 100%;
   padding: 6px;
   font-size: 12px;
   border: 1px solid #999999;
   border-radius: 4px;
 }
 .name-container {
-  width: 82%;
+  width: 100%;
 }
 
 /* Register paragraph */
 .register-parag1 {
   margin: 7px 0;
-  width: 82%;
+  width: 90%;
   font-size: 12px;
 }
 .register-parag1 a {
@@ -151,6 +152,9 @@ Register Page
   text-decoration: none;
 }
 
+.cover-img-after {
+  display: none;
+}
 /*
 Login page
 */
@@ -462,4 +466,20 @@ Home page
 }
 .right-container div a {
   color: #999999;
+}
+
+/* Responsiveness */
+@media only screen and (max-width: 1000px) {
+  .signup-img {
+    display: none;
+  }
+  .register-content {
+    width: 70vw;
+  }
+  .cover-img-after {
+    display: block;
+    width: 100%;
+    margin: 20px 0;
+    padding-right: 20px;
+  }
 }
