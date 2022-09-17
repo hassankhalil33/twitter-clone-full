@@ -70,8 +70,8 @@ function getFollowedTweets($followedIds, $mysql) {
 
     foreach($followedIds as $id) {
         $query = $mysql -> prepare(
-            "SELECT `text`, `time` FROM tweets
-            WHERE `user_id` = '$id'"
+            "SELECT u.username, u.f_name, u.l_name, t.`text`, t.`time` FROM users u, tweets t
+            WHERE t.`user_id` = '$id' AND u.id = '$id'"
         );
 
         $query -> execute();
