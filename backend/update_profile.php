@@ -4,7 +4,7 @@ header("Access-Control-Allow-Origin: *");
 header("Access-Control-Allow-Headers: *");
 
 include("connection.php");
-include("token.php");
+include("connection.php");
 
 // Init Variables
 
@@ -80,12 +80,6 @@ if (isset($description)) {
     $updateDesc = $dbDesc;
 };
 
-//Check Token Then Update
-if (isAuthorized($userName, $userToken, $SECRETKEY)) {
-    updateData($userName, $mysql, $updateName, $updateLast, $updatePhoto, $updateDesc);
-    die(json_encode("updated successfully"));
-} else {
-    die(json_encode("not authorized"));
-};
+updateData($userName, $mysql, $updateName, $updateLast, $updatePhoto, $updateDesc);
 
 ?>

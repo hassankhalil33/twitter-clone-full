@@ -4,6 +4,7 @@ header("Access-Control-Allow-Origin: *");
 header("Access-Control-Allow-Headers: *");
 
 include("connection.php");
+include("image_handler.php");
 
 $userName = $_POST["userName"];
 $text = $_POST["text"];
