@@ -23,11 +23,18 @@
         <p class="register-subtitle">Join Twitter today.</p>
         <form class="flex-column-container register-form" action="">
           <label for="name">Name</label>
-          <input
-            id="name"
-            type="text"
-            placeholder="Enter you name here"
-            required />
+          <div class="flex-container name-container">
+            <input
+              id="first-name"
+              type="text"
+              placeholder="First name"
+              required />
+            <input
+              id="last-name"
+              type="text"
+              placeholder="Last name"
+              required />
+          </div>
           <label for="date-birth">Date of birth</label>
           <input id="date-birth" type="date" required />
           <label for="username">Username</label>
@@ -86,7 +93,9 @@
           type="password"
           placeholder="Enter your password here"
           required />
-        <button id="login-signin" class="btn btn-blue" type="submit">Sign in</button>
+        <button id="login-signin" class="btn btn-blue" type="submit">
+          Sign in
+        </button>
       </form>
       <p>
         Don't have an account?

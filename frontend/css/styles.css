@@ -114,6 +114,9 @@ Register Page
   border: 1px solid #999999;
   border-radius: 4px;
 }
+.name-container {
+  width: 82%;
+}
 
 /* Register paragraph */
 .register-parag1 {
