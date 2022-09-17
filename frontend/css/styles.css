@@ -72,11 +72,11 @@ Register Page
 /* Hero */
 .signup-img {
   width: 55vw;
-  height: 100vh;
+  min-height: 100vh;
 }
 .register-content {
   flex: 0 1 40vw;
-  height: 100vh;
+  min-height: 100vh;
 }
 .register-logo-twitter {
   width: 24px;
@@ -113,7 +113,7 @@ Register Page
 
 /* Register paragraph */
 .register-parag1 {
-  margin: 1% 0;
+  margin: 7px 0;
   width: 82%;
   font-size: 12px;
 }
@@ -145,9 +145,10 @@ Login page
   margin: 10px auto 0;
 }
 .login-container {
-  width: 50vw;
-  height: 300px;
+  width: 40vw;
+  height: auto;
   border-radius: 10px;
+  padding-bottom: 50px;
 }
 .login-title {
   margin: 20px auto;
@@ -158,13 +159,13 @@ Login page
   margin-bottom: 20px;
 }
 .login-form label {
-  padding: 2%;
-  font-size: 12px;
+  padding: 6px 0;
+  font-size: 18px;
 }
 .login-form input {
   width: 100%;
-  padding: 2%;
-  font-size: 9px;
+  padding: 6px;
+  font-size: 12px;
   border: 1px solid #999999;
   border-radius: 4px;
 }
@@ -174,16 +175,12 @@ Login page
   font-weight: bold;
 }
 .login-container a {
-  text-decoration: none;
   color: #1d9bf0;
-}
-.login-container a:hover {
-  text-decoration: underline;
 }
 .popup {
   position: absolute;
-  top: 10vh;
-  left: 20vw;
+  top: 20vh;
+  left: 30vw;
   background-color: white;
   visibility: hidden;
 }
