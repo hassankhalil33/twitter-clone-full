@@ -75,11 +75,12 @@ Register Page
 /* Hero */
 .signup-img {
   width: 55vw;
-  min-height: 100vh;
+  height: 100vh;
 }
 .register-content {
   flex: 0 1 40vw;
   min-height: 100vh;
+  justify-content: center;
 }
 .register-logo-twitter {
   width: 24px;
