@@ -8,7 +8,7 @@ include("connection.php");
 $userName = $_POST["userName"];
 $blocked = $_POST["blocked"];
 
-function checkFollowed($user, $block, $mysql) {
+function checkBlocked($user, $block, $mysql) {
     $check = $mysql -> prepare(
         "SELECT COUNT(`user_id`) FROM blocks
         WHERE `user_id` = ? AND blocked_user_id = ?"
@@ -46,7 +46,7 @@ function returnId($user, $mysql) {
     return $response[0]["id"];
 };
 
-function followUser($user, $block, $mysql) {
+function blockUser($user, $block, $mysql) {
     $query = $mysql -> prepare(
         "INSERT INTO blocks(`user_id`, blocked_user_id)
         VALUE (?, ?)");
@@ -59,7 +59,7 @@ function followUser($user, $block, $mysql) {
     $query -> execute();
 };
 
-function unfollowUser($user, $block, $mysql) {
+function unblockUser($user, $block, $mysql) {
     $query = $mysql -> prepare(
         "DELETE FROM blocks
         WHERE `user_id` = ? AND blocked_user_id = ?");
@@ -73,14 +73,14 @@ function unfollowUser($user, $block, $mysql) {
 };
 
 $userId = returnId($userName, $mysql);
-$followedId = returnId($followed, $mysql);
+$blockedId = returnId($blocked, $mysql);
 
-if (checkFollowed($userId, $blocked, $mysql)) {
-    unfollowUser($userId, $blocked, $mysql);
-    echo json_encode("blocked successfully");
-} else {
-    followUser($userId, $blocked, $mysql);
+if (checkBlocked($userId, $blockedId, $mysql)) {
+    unblockUser($userId, $blockedId, $mysql);
     echo json_encode("unblocked successfully");
+} else {
+    blockUser($userId, $blockedId, $mysql);
+    echo json_encode("blocked successfully");
 };
 
 ?>
