@@ -25,6 +25,22 @@ function getUserData($user, $mysql) {
     return $response;
 };
 
+function returnId($user, $mysql) {
+    $check = $mysql -> prepare(
+        "SELECT id FROM users
+        WHERE username = ?"
+    );
+
+    $check -> bind_param("s", $user);
+    $check -> execute();
+    $array = $check -> get_result();
+
+    $response = [];
+    $response[] = $array -> fetch_assoc();
+
+    return $response[0]["id"];
+};
+
 function getFollowing($user, $mysql) {
     $query = $mysql -> prepare(
         "SELECT followed_user_id FROM follows
@@ -39,8 +55,38 @@ function getFollowing($user, $mysql) {
     while($i = $array -> fetch_assoc()){
         $response[] = $i;
     };
+    
+    $ids = [];
+
+    foreach($response as $resp) {
+        $ids[] = $resp["followed_user_id"];
+    };
+    
+    return $ids;
+};
+
+function getFollowedTweets($followedIds, $mysql) {
+    foreach($followedIds as $id) {
+        $query = $mysql -> prepare(
+            "SELECT `text`, `time` FROM tweets
+            WHERE `user_id` = '$id'"
+        );
+
+        $query -> execute();
+        $array = $query -> get_result();
+
+        $response = [];
+
+        while($i = $array -> fetch_assoc()){
+            $response[] = $i;
+        };
+    };
 
     return $response;
 };
+
+$userId = returnId($userName, $mysql);
+echo json_encode(getFollowing($userId , $mysql));
+//echo getFollowedTweets()
 
 ?>
