@@ -6,7 +6,7 @@ header("Access-Control-Allow-Headers: *");
 include("connection.php");
 
 $userName = $_POST["userName"];
-$tweet = $_POST["tweet"];
+$tweetId = $_POST["tweetId"];
 
 function checkLiked($user, $tweet, $mysql) {
     $check = $mysql -> prepare(
@@ -44,7 +44,7 @@ function returnId($user, $mysql) {
     return $response[0]["id"];
 };
 
-function likeUser($user, $tweet, $mysql) {
+function likeTweet($user, $tweet, $mysql) {
     $query = $mysql -> prepare(
         "INSERT INTO likes(`user_id`, tweet_id)
         VALUE (?, ?)");
@@ -57,9 +57,9 @@ function likeUser($user, $tweet, $mysql) {
     $query -> execute();
 };
 
-function unlikeUser($user, $tweet, $mysql) {
+function unlikeTweet($user, $tweet, $mysql) {
     $query = $mysql -> prepare(
-        "DELETE FROM blocks
+        "DELETE FROM likes
         WHERE `user_id` = ? AND tweet_id = ?");
 
     if ($query === false) {
@@ -71,13 +71,12 @@ function unlikeUser($user, $tweet, $mysql) {
 };
 
 $userId = returnId($userName, $mysql);
-$tweetId = returnId($tweet, $mysql);
 
-if (checkBlocked($userId, $tweetId, $mysql)) {
-    unblockUser($userId, $tweetId, $mysql);
+if (checkLiked($userId, $tweetId, $mysql)) {
+    unlikeTweet($userId, $tweetId, $mysql);
     echo json_encode("unliked successfully");
 } else {
-    blockUser($userId, $tweetId, $mysql);
+    likeTweet($userId, $tweetId, $mysql);
     echo json_encode("liked successfully");
 };
 
