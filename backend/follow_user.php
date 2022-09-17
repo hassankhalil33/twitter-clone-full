@@ -7,16 +7,33 @@ $followed = $_POST["followed"];
 
 //NEED TO ADD IF EXISTS TO UNFOLLOW
 
-function checkFollowed() {
+function checkFollowed($user, $follow, $mysql) {
+    $check = $mysql -> prepare(
+        "SELECT COUNT(`user_id`) FROM follows
+        WHERE `user_id` = ? AND followed_user_id = ?"
+    );
 
+    $check -> bind_param("s", $user);
+    $check -> execute();
+    $array = $check -> get_result();
+
+    $response = [];
+    $response[] = $array -> fetch_assoc();
+
+    if ($response[0]["COUNT(`user_id`)"] == 1) {
+        return true;
+    } else {
+        return false;
+    };
 };
 
 function returnId($user, $mysql) {
     $check = $mysql -> prepare(
         "SELECT id FROM users
-        WHERE username = '$user'"
+        WHERE username = ?"
     );
 
+    $check -> bind_param("s", $user);
     $check -> execute();
     $array = $check -> get_result();
 
@@ -44,12 +61,13 @@ function followUser($user, $follow, $mysql) {
 function unfollowUser($user, $follow, $mysql) {
     $query = $mysql -> prepare(
         "DELETE FROM follows
-        WHERE `user_id` = '$user' AND followed_user_id = '$follow'");
+        WHERE `user_id` = ? AND followed_user_id = ?");
 
     if ($query === false) {
         die("error: " . $mysql -> error);
     };
 
+    $query -> bind_param("ss", $user, $follow);
     $query -> execute();
 };
 
