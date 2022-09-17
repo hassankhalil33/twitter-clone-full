@@ -8,7 +8,7 @@ include("connection.php");
 $userName = $_POST["userName"];
 $text = $_POST["text"];
 $datePosted = date("d M Y @ " . "H" . ":i");
-$images = $_POST["images"];
+//$images = $_POST["images"];
 
 function returnId($user, $mysql) {
     $check = $mysql -> prepare(
@@ -26,6 +26,22 @@ function returnId($user, $mysql) {
     return $response[0]["id"];
 };
 
-echo returnId($userName, $mysql);
+function postTweet($id, $text, $date, $mysql) {
+    $query = $mysql -> prepare(
+        "INSERT INTO tweets(`user_id`, `text`, `time`)
+        VALUE (?, ?, ?)");
+
+    if ($query === false) {
+        die("error: " . $mysql -> error);
+    };
+
+    $query -> bind_param("sss", $id, $text, $date);
+    $query -> execute();
+};
+
+$userId = returnId($userName, $mysql);
+postTweet($userId, $text, $datePosted, $mysql);
+
+echo json_encode("success");
 
 ?>
