@@ -191,6 +191,18 @@ Login page
   background-color: white;
 }
 
+/* Register footer */
+.register-footer {
+  font-size: 12px;
+  color: #6e6b6b;
+  padding: 15px;
+  text-align: center;
+}
+.register-footer a {
+  color: #6e6b6b;
+  padding-right: 16px;
+}
+
 /*  
 Home page 
 */
