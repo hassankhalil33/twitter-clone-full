@@ -397,6 +397,11 @@ Home page
   border-radius: inherit;
   padding: 5px 3px;
 }
+.search-results {
+  height: 60vh;
+  width: 15vw;
+  background-color: #d3cccc;
+}
 
 .right-container div {
   font-size: 14px;
