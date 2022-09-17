@@ -4,11 +4,11 @@ window.onload = () => {
   const navProfile = document.getElementById("nav-profile");
   const homePage = document.getElementById("home-page");
   const profilePage = document.getElementById("profile-page");
+  const backToHome = document.getElementById("back-to-home");
 
   // Functions
   const switchToHome = () => {
     if (navHome.children[2].classList.contains("tab-not-selected")) {
-      console.log("psss");
       navHome.children[0].classList.toggle("hidden");
       navHome.children[1].classList.toggle("hidden");
       navProfile.children[0].classList.toggle("hidden");
@@ -24,7 +24,6 @@ window.onload = () => {
 
   const switchToProfile = () => {
     if (navProfile.children[2].classList.contains("tab-not-selected")) {
-      console.log("jajs");
       navHome.children[0].classList.toggle("hidden");
       navHome.children[1].classList.toggle("hidden");
       navProfile.children[0].classList.toggle("hidden");
@@ -48,4 +47,5 @@ window.onload = () => {
     event.preventDefault();
     switchToProfile();
   });
+  backToHome.addEventListener("click", switchToHome);
 };

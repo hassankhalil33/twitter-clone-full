@@ -302,6 +302,15 @@ Home page
 }
 
 /* Profile */
+.header span {
+  padding: 10px;
+}
+.header span:hover {
+  cursor: pointer;
+}
+.header div {
+  align-self: center;
+}
 .profile-info-section {
   font-size: 16px;
   color: #999999;
