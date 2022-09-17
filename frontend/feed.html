@@ -81,7 +81,9 @@
 
             <a class="btn btn-white hidden" href="">Follow</a>
             <a class="btn btn-red hidden" href="">Block</a>
-            <a class="btn btn-white" href="">Set up profile</a>
+            <a id="setup-profile" class="btn btn-white" href="">
+              Set up profile
+            </a>
           </div>
           <div class="flex-column-container profile-info">
             <p class="profile-name">Name</p>
@@ -99,12 +101,14 @@
               </a>
             </div>
           </div>
+
+          <!-- Edit profile popup -->
           <div
-            id="edit-profile"
+            id="edit-profile-container"
             class="flex-column-container edit-profile-container popup popup-hidden">
             <h3>
-              Enter new data (To keep the old information in a field leave it
-              blank)
+              Update your profile (To keep the old information in a field leave
+              it blank)
             </h3>
             <form action="" class="flex-column-container">
               <label for="new-first-name">Enter new Name</label>
@@ -134,7 +138,7 @@
               <a class="btn btn-blue-light" href="">Update photo</a>
               <div class="flex-container">
                 <button class="btn btn-blue" type="submit">Save changes</button>
-                <a class="btn btn-red">Cancel</a>
+                <a id="cancel-edit-profile" class="btn btn-red">Cancel</a>
               </div>
             </form>
           </div>

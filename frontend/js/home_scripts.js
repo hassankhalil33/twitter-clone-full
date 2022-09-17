@@ -5,6 +5,11 @@ window.onload = () => {
   const homePage = document.getElementById("home-page");
   const profilePage = document.getElementById("profile-page");
   const backToHome = document.getElementById("back-to-home");
+  const setupProfile = document.getElementById("setup-profile");
+  const editProfileContainer = document.getElementById(
+    "edit-profile-container"
+  );
+  const cancelProfileEdit = document.getElementById("cancel-edit-profile");
 
   // Functions
   const switchToHome = () => {
@@ -37,15 +42,28 @@ window.onload = () => {
     }
   };
 
+  const openEditProfilePopup = () => {
+    editProfileContainer.classList.remove("popup-hidden");
+  };
+
+  const closeEditProfilePopup = () => {
+    editProfileContainer.classList.add("popup-hidden");
+  };
+
   //
   navHome.addEventListener("click", event => {
     event.preventDefault();
     switchToHome();
   });
-
   navProfile.addEventListener("click", event => {
     event.preventDefault();
     switchToProfile();
   });
   backToHome.addEventListener("click", switchToHome);
+
+  setupProfile.addEventListener("click", event => {
+    event.preventDefault();
+    openEditProfilePopup();
+  });
+  cancelProfileEdit.addEventListener("click", closeEditProfilePopup);
 };
