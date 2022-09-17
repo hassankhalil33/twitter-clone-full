@@ -65,12 +65,13 @@ function getFollowing($user, $mysql) {
     return $ids;
 };
 
+
 function getFollowedTweets($followedIds, $mysql) {
     $response = [];
 
     foreach($followedIds as $id) {
         $query = $mysql -> prepare(
-            "SELECT u.username, u.f_name, u.l_name, t.`text`, t.`time` FROM users u, tweets t
+            "SELECT t.id, u.username, u.f_name, u.l_name, t.`text`, t.`time` FROM users u, tweets t
             WHERE t.`user_id` = '$id' AND u.id = '$id'"
         );
 
@@ -78,15 +79,35 @@ function getFollowedTweets($followedIds, $mysql) {
         $array = $query -> get_result();
 
         while($i = $array -> fetch_assoc()){
+            $i["likes"] = 0;
             $response[] = $i;
         };
     };
+
+    // foreach($response as $resp) {
+    //     $id = $resp["id"];
+    //     echo $id;
+
+    //     $query = $mysql -> prepare(
+    //         "SELECT COUNT(l.user_id) AS likes
+    //         FROM likes
+    //         WHERE l.tweet_id = '$id'"
+    //     );
+
+    //     $query -> execute();
+    //     $array = $query -> get_result();
+
+    //     while($i = $array -> fetch_assoc()){
+    //         $response[] = $i;
+    //     };
+    // };
 
     return $response;
 };
 
 $userId = returnId($userName, $mysql);
 $followedIds = getFollowing($userId , $mysql);
+echo json_encode($followedIds);
 echo json_encode(getFollowedTweets($followedIds, $mysql));
 
 ?>
