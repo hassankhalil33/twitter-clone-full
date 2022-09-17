@@ -41,8 +41,6 @@ function returnId($user, $mysql) {
     $response = [];
     $response[] = $array -> fetch_assoc();
 
-    // echo json_encode($response);
-
     return $response[0]["id"];
 };
 
