@@ -22,9 +22,30 @@ window.onload = () => {
     }
   };
 
+  const switchToProfile = () => {
+    if (navProfile.children[2].classList.contains("tab-not-selected")) {
+      console.log("jajs");
+      navHome.children[0].classList.toggle("hidden");
+      navHome.children[1].classList.toggle("hidden");
+      navProfile.children[0].classList.toggle("hidden");
+      navProfile.children[1].classList.toggle("hidden");
+      navHome.children[2].classList.remove("tab-selected");
+      navHome.children[2].classList.add("tab-not-selected");
+      navProfile.children[2].classList.remove("tab-not-selected");
+      navProfile.children[2].classList.add("tab-selected");
+      homePage.classList.toggle("hidden");
+      profilePage.classList.toggle("hidden");
+    }
+  };
+
   //
   navHome.addEventListener("click", event => {
     event.preventDefault();
     switchToHome();
+  });
+
+  navProfile.addEventListener("click", event => {
+    event.preventDefault();
+    switchToProfile();
   });
 };
