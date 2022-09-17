@@ -51,7 +51,7 @@ a:hover {
   margin-left: 20vw;
 }
 .header {
-  height: 8vh;
+  height: 50px;
   width: 100%;
   position: fixed;
   background-color: white;
@@ -209,7 +209,6 @@ Home page
   margin-left: 3%;
 }
 .nav-tab {
-  font-size: 12px;
   width: 13vw;
   border-radius: 8px;
   padding: 3%;
@@ -220,7 +219,6 @@ Home page
 }
 .navigation span {
   padding-left: 5px;
-  align-self: center;
 }
 .tab-selected {
   color: black;
@@ -238,12 +236,11 @@ Home page
   background-color: #1a8cd8;
 }
 .pp-name-username {
-  font-size: 12px;
   width: 13vw;
 }
 .pp-name-username img {
-  width: 30px;
-  height: 30px;
+  width: 40px;
+  height: 40px;
   padding: 0;
   border-radius: 36px;
   display: inline-block;
@@ -252,21 +249,21 @@ Home page
   align-self: center;
 }
 .nav-name {
-  font-size: 12px;
+  font-size: 16px;
   width: 9vw;
   color: black;
   font-weight: bold;
 }
 .nav-username {
-  font-size: 10px;
+  font-size: 14px;
   width: 9vw;
   color: #999999;
 }
 
 /* Tweet */
 .home-tweet {
-  height: 126px;
-  margin-top: 8vh;
+  height: auto;
+  margin-top: 50px;
   border-bottom: 1px solid #999999;
 }
 .home-tweet > img {
@@ -282,12 +279,12 @@ Home page
   border: none;
   padding-top: 20px;
   flex: 1 0 80%;
-  font-size: 12px;
+  font-size: 18px;
   border-bottom: #999999 1px solid;
 }
 .home-tweet-form div {
   width: 100%;
-  height: 40px;
+  height: auto;
   justify-content: space-between;
   align-items: center;
 }
@@ -295,8 +292,8 @@ Home page
   cursor: pointer;
 }
 .home-tweet-btn {
-  padding: 0 3%;
-  margin-right: 1.5vw;
+  margin-right: 30px;
+  margin-bottom: 10px;
   align-self: flex-start;
 }
 .home-tweet-btn:hover {
@@ -306,7 +303,7 @@ Home page
 
 /* Profile */
 .profile-info-section {
-  font-size: 12px;
+  font-size: 16px;
   color: #999999;
   border-bottom: #999999 1px solid;
 }
@@ -359,7 +356,7 @@ Home page
   left: 80vw;
   justify-content: space-between;
   align-items: center;
-  padding: 3.5vw;
+  padding: 20px;
   text-align: center;
 }
 .search {
@@ -369,7 +366,7 @@ Home page
   align-items: center;
 }
 .search input {
-  font-size: 8px;
+  font-size: 18px;
   width: 80%;
   background-color: inherit;
   border: none;
@@ -378,7 +375,7 @@ Home page
 }
 
 .right-container div {
-  font-size: 12px;
+  font-size: 14px;
   color: #999999;
 }
 .right-container div a {
