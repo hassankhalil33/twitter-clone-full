@@ -5,8 +5,6 @@ include("connection.php");
 $userName = $_POST["userName"];
 $followed = $_POST["followed"];
 
-//NEED TO ADD IF EXISTS TO UNFOLLOW
-
 function checkFollowed($user, $follow, $mysql) {
     $check = $mysql -> prepare(
         "SELECT COUNT(`user_id`) FROM follows
@@ -77,7 +75,12 @@ $followedId = returnId($followed, $mysql);
 echo json_encode($userId);
 echo json_encode($followedId);
 
-followUser($userId, $followedId, $mysql);
-echo json_encode("success");
+if (checkFollowed($userId, $followedId, $mysql)) {
+    unfollowUser($userId, $followedId, $mysql);
+    echo json_encode("unfollowed successfully");
+} else {
+    followUser($userId, $followedId, $mysql);
+    echo json_encode("followed successfully");
+};
 
 ?>

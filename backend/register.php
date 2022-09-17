@@ -1,5 +1,8 @@
 <?php
 
+header("Access-Control-Allow-Origin: *");
+header("Access-Control-Allow-Headers: *");
+
 include("connection.php");
 
 $userName = $_POST["userName"];
@@ -25,7 +28,7 @@ while($i = $array -> fetch_assoc()){
 };
 
 if ($response) {
-    die ("error: username / email already in use.");
+    die(json_encode("error: username / email already in use."));
 };
 
 $query = $mysql -> prepare(
@@ -33,7 +36,7 @@ $query = $mysql -> prepare(
     VALUE ('$userType', ?, ?, ?, '$password', ?, '$dateJoined')");
 
 if ($query === false) {
-    die ("error: " . $mysql -> error);
+    die(json_encode("error: " . $mysql -> error));
 };
 
 $query -> bind_param("ssss", $firstName, $lastName, $userName, $email);

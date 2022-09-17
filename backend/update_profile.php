@@ -1,5 +1,8 @@
 <?php
 
+header("Access-Control-Allow-Origin: *");
+header("Access-Control-Allow-Headers: *");
+
 include("connection.php");
 include("token.php");
 
@@ -80,9 +83,9 @@ if (isset($description)) {
 //Check Token Then Update
 if (isAuthorized($userName, $userToken, $SECRETKEY)) {
     updateData($userName, $mysql, $updateName, $updateLast, $updatePhoto, $updateDesc);
-    die("updated successfully");
+    die(json_encode("updated successfully"));
 } else {
-    die("not authorized");
+    die(json_encode("not authorized"));
 };
 
 ?>

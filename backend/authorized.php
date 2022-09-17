@@ -1,5 +1,8 @@
 <?php
 
+header("Access-Control-Allow-Origin: *");
+header("Access-Control-Allow-Headers: *");
+
 include("token.php");
 
 // Init Variables
@@ -9,6 +12,6 @@ $userToken = $_POST["token"];
 
 // Main
 
-echo isAuthorized($userName, $userToken, $SECRETKEY);
+echo json_encode(isAuthorized($userName, $userToken, $SECRETKEY));
 
 ?>
