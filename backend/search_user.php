@@ -6,12 +6,12 @@ header("Access-Control-Allow-Headers: *");
 include("connection.php");
 
 $searchQuery = $_POST["searchQuery"];
-$regEx = "/.*(" . $searchQuery . ").*/gi";
+$regEx = ".*(" . $searchQuery . ").*";
 
 function searchFor($search, $mysql) {
     $query = $mysql -> prepare(
         "SELECT username, f_name, l_name FROM users
-        WHERE `username` = ? OR f_name = ? OR l_name = ?"
+        WHERE `username` REGEXP ? OR f_name REGEXP ? OR l_name REGEXP ?"
     );
 
     $query -> bind_param("sss", $search, $search, $search);
@@ -27,6 +27,6 @@ function searchFor($search, $mysql) {
     return $response;
 };
 
-echo json_encode(searchFor($searchQuery, $mysql));
+echo json_encode(searchFor($regEx, $mysql));
 
 ?>
