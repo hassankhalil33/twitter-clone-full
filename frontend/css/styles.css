@@ -378,6 +378,51 @@ Home page
   color: black;
   font-weight: bold;
 }
+.edit-profile-container {
+  width: 40vw;
+  height: auto;
+  border-radius: 10px;
+  padding-bottom: 50px;
+  color: black;
+}
+.edit-profile-container h3 {
+  margin: 20px auto;
+  text-align: center;
+  font-size: 16px;
+}
+.edit-profile-container form {
+  width: 100%;
+  padding: 0 60px;
+  margin-bottom: 20px;
+}
+.edit-profile-container label {
+  padding: 6px 0;
+  font-size: 18px;
+}
+.edit-profile-container input {
+  width: 100%;
+  padding: 6px;
+  font-size: 12px;
+  border: 1px solid #999999;
+  border-radius: 4px;
+}
+.edit-profile-container form > a {
+  margin-top: 0px;
+  color: black;
+}
+.edit-profile-container form > a:hover {
+  color: #1a8cd8;
+}
+.edit-profile-container form a {
+  font-size: 12px;
+}
+.edit-profile-container form a:hover {
+  text-decoration: none;
+}
+.edit-profile-container div {
+  justify-content: space-evenly;
+  width: 100%;
+}
 
 /* Right section */
 .right-container {

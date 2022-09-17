@@ -99,12 +99,14 @@
               </a>
             </div>
           </div>
-          <div id="edit-profile">
+          <div
+            id="edit-profile"
+            class="flex-column-container edit-profile-container popup popup-hidden">
             <h3>
               Enter new data (To keep the old information in a field leave it
               blank)
             </h3>
-            <form action="">
+            <form action="" class="flex-column-container">
               <label for="new-first-name">Enter new Name</label>
               <div class="flex-container name-container">
                 <input
@@ -123,14 +125,17 @@
                 type="text"
                 id="new-description"
                 placeholder="Enter a new description here" />
-              <label for="">Change your photo</label>
-              <a class="btn btn-blue-light" href="">Update photo</a>
               <label for="new-password">New password</label>
               <input
                 type="password"
                 id="new-password"
                 placeholder="Enter new password here" />
-              <button class="btn btn-blue" type="submit">Save changes</button>
+              <label for="">Change your photo</label>
+              <a class="btn btn-blue-light" href="">Update photo</a>
+              <div class="flex-container">
+                <button class="btn btn-blue" type="submit">Save changes</button>
+                <a class="btn btn-red">Cancel</a>
+              </div>
             </form>
           </div>
         </section>
