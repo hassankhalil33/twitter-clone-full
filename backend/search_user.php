@@ -15,12 +15,15 @@ function searchFor($search, $mysql) {
 
     $query -> bind_param("sss", $search, $search, $search);
     $query -> execute();
-    $array = $check -> get_result();
+    $array = $query -> get_result();
 
     $response = [];
-    $response[] = $array -> fetch_assoc();
 
-    return $response
+    while($i = $array -> fetch_assoc()){
+        $response[] = $i;
+    };
+
+    return $response;
 };
 
 echo json_encode(searchFor($searchQuery, $mysql));
