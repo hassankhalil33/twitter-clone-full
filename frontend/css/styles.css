@@ -46,6 +46,14 @@ a:hover {
   background-color: #e0f1f0;
   color: #999999;
 }
+.btn-red {
+  color: #1d9bf0;
+  border: solid 1px #999999;
+}
+.btn-red:hover {
+  color: red;
+  background-color: #e0f1f0;
+}
 .mid {
   width: 60vw;
   margin-left: 20vw;
