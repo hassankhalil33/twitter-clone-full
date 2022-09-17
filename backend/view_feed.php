@@ -22,6 +22,7 @@ function getUserData($user, $mysql) {
         $response[] = $i;
     };
 
+    $response[0]["username"] = $user;
     return $response;
 };
 
@@ -68,6 +69,7 @@ function getFollowing($user, $mysql) {
 
 function getFollowedTweets($followedIds, $mysql) {
     $response = [];
+    $index = 0;
 
     foreach($followedIds as $id) {
         $query = $mysql -> prepare(
@@ -79,35 +81,42 @@ function getFollowedTweets($followedIds, $mysql) {
         $array = $query -> get_result();
 
         while($i = $array -> fetch_assoc()){
-            $i["likes"] = 0;
             $response[] = $i;
         };
     };
 
-    // foreach($response as $resp) {
-    //     $id = $resp["id"];
-    //     echo $id;
+    foreach($response as $resp) {
+        $id = $resp["id"];
 
-    //     $query = $mysql -> prepare(
-    //         "SELECT COUNT(l.user_id) AS likes
-    //         FROM likes
-    //         WHERE l.tweet_id = '$id'"
-    //     );
+        $query = $mysql -> prepare(
+            "SELECT COUNT(`user_id`) AS likes FROM likes
+            WHERE tweet_id = '$id'"
+        );
 
-    //     $query -> execute();
-    //     $array = $query -> get_result();
+        $query -> execute();
+        $array = $query -> get_result();
 
-    //     while($i = $array -> fetch_assoc()){
-    //         $response[] = $i;
-    //     };
-    // };
+        
+        
+        while($i = $array -> fetch_assoc()){
+            $response[$index]["likes"] = $i["likes"];
+            $test[] = $i;
+            $index++;
+        };
+
+        
+    };
 
     return $response;
 };
 
 $userId = returnId($userName, $mysql);
 $followedIds = getFollowing($userId , $mysql);
-echo json_encode($followedIds);
-echo json_encode(getFollowedTweets($followedIds, $mysql));
+$userData = getUserData($userName, $mysql);
+$tweetsData = getFollowedTweets($followedIds, $mysql);
+$json = [];
+$json[] = $userData;
+$json[] = $tweetsData;
+echo json_encode($json);
 
 ?>
