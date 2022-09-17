@@ -75,9 +75,6 @@ function unfollowUser($user, $follow, $mysql) {
 $userId = returnId($userName, $mysql);
 $followedId = returnId($followed, $mysql);
 
-echo json_encode($userId);
-echo json_encode($followedId);
-
 if (checkFollowed($userId, $followedId, $mysql)) {
     unfollowUser($userId, $followedId, $mysql);
     echo json_encode("unfollowed successfully");
