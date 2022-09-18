@@ -10,6 +10,9 @@ window.onload = () => {
     "edit-profile-container"
   );
   const cancelProfileEdit = document.getElementById("cancel-edit-profile");
+  const nameArray = document.querySelectorAll(".name");
+  const usernameArray = document.querySelectorAll(".username");
+  let fullName, username;
 
   // Functions
   const switchToHome = () => {
@@ -76,16 +79,23 @@ window.onload = () => {
     })
       .then(respone => respone.json())
       .then(data => {
-        console.log(data[0]);
-        console.log(data[1]);
+        fullName = `${data[0][0].f_name} ${data[0][0].l_name}`;
+        username = `@${data[0][0].username}`;
+        displayData();
+        console.log(data[1][0]);
       })
       .catch(error => console.log(error));
   }
+
+  const displayData = () => {
+    nameArray.forEach(elt => (elt.innerText = fullName));
+    usernameArray.forEach(elt => (elt.innerText = username));
+  };
   //
   if (isAuthorized()) {
-    console.log("autho");
     view_feed();
   }
+
   navHome.addEventListener("click", event => {
     event.preventDefault();
     switchToHome();
