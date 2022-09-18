@@ -127,11 +127,9 @@ window.onload = () => {
       .catch(error => console.log(error));
   }
 
-  async function viewProfile() {
+  async function viewProfile(user) {
     await fetch(
-      `http://localhost/fswo5/twitter-clone/view_profile.php?userName=${localStorage.getItem(
-        "username"
-      )}`
+      `http://localhost/fswo5/twitter-clone/view_profile.php?userName=${user}`
     )
       .then(respone => respone.json())
       .then(data => {
@@ -189,17 +187,25 @@ window.onload = () => {
       .then(data => {
         let searchCard = ``;
         data.map(values => {
-          searchCard += `<a href=""><div class="flex-container">
+          searchCard += `<a class="search-res" href=""><div class="flex-container">
           <img class="card-pp" src="images/pp.png" alt="" />
           <div class="flex-column-container">
             <p class="nav-name">${values.f_name} ${values.l_name}</p>
-            <p class="nav-username">@${values.username}</p>
+            <p class="nav-username">${values.username}</p>
           </div>
           </div></a>
           `;
           searchResultsBox.innerHTML = searchCard;
         });
-        console.log(data);
+        searchResultsBox.innerHTML = searchCard;
+        const searchRes = document.querySelectorAll(".search-res");
+        searchRes.forEach(s => {
+          s.addEventListener("click", event => {
+            event.preventDefault();
+            switchToProfile();
+            viewProfile(s.children[0].children[1].children[1].innerText);
+          });
+        });
       })
       .catch(error => console.log(error));
   }
@@ -216,7 +222,7 @@ window.onload = () => {
   navProfile.addEventListener("click", event => {
     event.preventDefault();
     switchToProfile();
-    viewProfile();
+    viewProfile(localStorage.getItem("username"));
   });
   backToHome.addEventListener("click", switchToHome);
 
