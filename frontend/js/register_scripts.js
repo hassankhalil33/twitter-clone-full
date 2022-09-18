@@ -22,18 +22,20 @@ window.onload = () => {
       password: passwordInput.value,
     };
 
-    await fetch("http://localhost/fswo5/twitterclone/login.php", {
+    await fetch("http://localhost/fswo5/twitter-clone/login.php", {
       method: "POST",
       body: new URLSearchParams(data),
     })
       .then(respone => respone.json())
       .then(data => {
         if (data == "username not found!") {
-          alert("Wrong username!")
+          alert("Wrong username!");
         } else if (data == "incorrect password") {
-          alert("Incorrect password!")
-        }else{
-
+          alert("Incorrect password!");
+        } else {
+          localStorage.setItem("token", data);
+          localStorage.setItem("username", identificationInput.value);
+          location.replace("./feed.html");
         }
       });
   }
