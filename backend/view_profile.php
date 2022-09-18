@@ -4,7 +4,7 @@ header("Access-Control-Allow-Origin: *");
 header("Access-Control-Allow-Headers: *");
 
 include("connection.php");
-include("image_handler.php");
+// include("image_handler.php");
 
 // Init Variables
 
@@ -88,9 +88,9 @@ $allData[0]["following"] = $allData[1]["following"];
 $allData[0]["followers"] = $allData[1]["followers"];
 unset($allData[1]);
 $id = returnId($userName, $mysql);
-$image = imageRetrieve($id, "profile", $mysql);
+// $image = imageRetrieve($id, "profile", $mysql);
 
-$allData[0]["profile_pic"] = $image;
+// $allData[0]["profile_pic"] = $image;
 
 echo json_encode($allData);
 
