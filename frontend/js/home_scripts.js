@@ -98,7 +98,7 @@ window.onload = () => {
         usernameNav.innerText = `@${data[0][0].username}`;
         let card = ``;
         data[1].map(values => {
-          card += `<div class="flex-container card">
+          card += `<div class="flex-container card" id="${values.id}">
           <img class="card-pp" src="images/pp.png" alt="" />
           <div class="flex-column-container card-content">
             <div class="flex-container card-head">
@@ -114,7 +114,7 @@ window.onload = () => {
               src="images/twitter-cover-page.png"
               alt="" />
             <div class="flex-container">
-              <a href="">
+              <a class="like-tweet" href="">
                 <img class="icons" src="images/like-icon.png" alt="" />
               </a>
               <p>${values.likes}</p>
@@ -123,6 +123,14 @@ window.onload = () => {
         </div>`;
         });
         cards.innerHTML = card;
+
+        const likeTweetBtns = document.querySelectorAll(".like-tweet");
+        likeTweetBtns.forEach(like => {
+          like.addEventListener("click", event => {
+            event.preventDefault();
+            likeTweet(like.parentElement.parentElement.parentElement.id);
+          });
+        });
       })
       .catch(error => console.log(error));
   }
@@ -232,7 +240,7 @@ window.onload = () => {
     })
       .then(respone => respone.json())
       .then(data => {
-        console.log(data)
+        console.log(data);
         if (follow.innerText == "Follow") {
           follow.innerText = "Followed";
           follow.classList.add("followed");
@@ -255,7 +263,6 @@ window.onload = () => {
     })
       .then(respone => respone.json())
       .then(data => {
-        console.log()
         console.log(data);
         if (block.innerText == "block") {
           block.innerText = "blocked";
@@ -265,7 +272,23 @@ window.onload = () => {
           block.classList.remove("blocked");
         }
       })
-      // .catch(error => console.log(error));
+      .catch(error => console.log(error));
+  }
+
+  async function likeTweet(id) {
+    const data = {
+      userName: localStorage.getItem("username"),
+      tweetId: id,
+    };
+    await fetch("http://localhost/fswo5/twitter-clone/like_tweet.php", {
+      method: "POST",
+      body: new URLSearchParams(data),
+    })
+      .then(respone => respone.json())
+      .then(data => {
+        console.log(data);
+      })
+      .catch(error => console.log(error));
   }
 
   //
@@ -300,7 +323,7 @@ window.onload = () => {
     event.preventDefault();
     followUser();
   });
-  
+
   block.addEventListener("click", event => {
     event.preventDefault();
     blockUser();
