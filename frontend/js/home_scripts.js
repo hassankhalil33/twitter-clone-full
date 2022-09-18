@@ -20,6 +20,8 @@ window.onload = () => {
   const profileDate = document.getElementById("profile-date");
   const profileFollowing = document.getElementById("profile-following");
   const profileFollowers = document.getElementById("profile-followers");
+  const follow = document.getElementById("follow");
+  const block = document.getElementById("block");
 
   // Functions
   const switchToHome = () => {
@@ -139,6 +141,15 @@ window.onload = () => {
         profileFollowers.innerText = data[0].followers;
       })
       .catch(error => console.log(error));
+    if (!isAuthorized()) {
+      setupProfile.classList.add("hidden");
+      follow.classList.remove("hidden");
+      block.classList.remove("hidden");
+    } else {
+      setupProfile.classList.remove("hidden");
+      follow.classList.add("hidden");
+      block.classList.add("hidden");
+    }
   }
 
   //
@@ -153,9 +164,7 @@ window.onload = () => {
   navProfile.addEventListener("click", event => {
     event.preventDefault();
     switchToProfile();
-    if (isAuthorized()) {
-      viewProfile();
-    }
+    viewProfile();
   });
   backToHome.addEventListener("click", switchToHome);
 
