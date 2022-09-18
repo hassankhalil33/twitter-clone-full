@@ -31,14 +31,15 @@
         <div class="flex-container pp-name-username">
           <img src="images/pp.png" alt="" />
           <div class="felx-column-container">
-            <p class="nav-name name">Name</p>
-            <p class="nav-username username">Username</p>
+            <p id="name-nav" class="nav-name">Name</p>
+            <p id="username-nav" class="nav-username">Username</p>
           </div>
         </div>
       </nav>
 
-      <!-- Mid section -->
-
+      <!--       
+      Mid section
+       -->
       <div id="home-page" class="mid">
         <!-- header -->
         <div class="header">
@@ -49,49 +50,30 @@
           <img class="icons" src="images/pp.png" alt="" />
           <form class="flex-column-container home-tweet-form" action="">
             <textarea
+              id="tweet-textarea"
               placeholder="What's happening?"
+              required
               cols="30"
               rows="5"></textarea>
             <div class="flex-container">
               <span>
                 <img class="icons" src="images/attach-photo-icon.png" alt="" />
               </span>
-              <a class="btn btn-blue home-tweet-btn" href="">Tweet</a>
+              <button
+                id="tweet-btn"
+                class="btn btn-blue home-tweet-btn"
+                type="submit"
+                href="">
+                Tweet
+              </button>
             </div>
           </form>
         </section>
-
         <!-- Feed Tweets -->
-        <section class="feed">
-          <div class="flex-container card">
-            <img class="card-pp" src="images/pp.png" alt="" />
-            <div class="flex-column-container card-content">
-              <div class="flex-container card-head">
-                <p class="nav-name name"></p>
-                <p class="nav-username username"></p>
-                <p class="date">20/10/2022</p>
-              </div>
-              <p class="card-text">
-                this is the textthis is the textthis is the textthis is the
-                textthis is the textthis is the textthis is the textthis is the
-                textthis is the textthis is the textthis is the textthis is the
-                text
-              </p>
-              <img
-                class="card-img"
-                src="images/twitter-cover-page.png"
-                alt="" />
-              <div class="flex-container">
-                <a href="">
-                  <img class="icons" src="images/like-icon.png" alt="" />
-                </a>
-                <p>15</p>
-              </div>
-            </div>
-          </div>
-        </section>
+        <section id="cards" class="feed"></section>
       </div>
 
+      <!-- Profile page -->
       <div id="profile-page" class="mid hidden">
         <!-- header -->
         <div class="header flex-container">
@@ -99,8 +81,8 @@
             <img class="icons" src="images/arrow-back-icon.png" alt="" />
           </span>
           <div class="felx-column-container">
-            <p class="nav-name name">Name</p>
-            <p class="nav-username username">Username</p>
+            <p class="nav-name profile-name">Name</p>
+            <p class="nav-username profile-username">Username</p>
           </div>
         </div>
         <!-- profile info -->
@@ -109,24 +91,27 @@
           <div class="flex-container profile-img-btn">
             <img class="profile-pp" src="images/pp.png" alt="" />
 
-            <a class="btn btn-white hidden" href="">Follow</a>
-            <a class="btn btn-red hidden" href="">Block</a>
+            <a id="follow" class="btn btn-white hidden" href="">Follow</a>
+            <a id="block" class="btn btn-red hidden" href="">Block</a>
             <a id="setup-profile" class="btn btn-white" href="">
               Set up profile
             </a>
           </div>
           <div class="flex-column-container profile-info">
-            <p class="profile-name name">Name</p>
-            <p class="username">Username</p>
-            <p>Description</p>
-            <p>Joined on</p>
+            <p class="profile-name">Name</p>
+            <p class="profile-username">Username</p>
+            <p id="profile-description">Description</p>
+            <p>
+              Joined on
+              <span id="profile-date"></span>
+            </p>
             <div class="flex-container profile-numbers">
               <a>
-                <span>1</span>
+                <span id="profile-following">1</span>
                 Following
               </a>
               <a>
-                <span>2</span>
+                <span id="profile-followers">2</span>
                 Followers
               </a>
             </div>
@@ -149,25 +134,17 @@
                   placeholder="First name" />
                 <input id="new-last-name" type="text" placeholder="Last name" />
               </div>
-              <label for="new-username">New username</label>
-              <input
-                type="text"
-                id="new-username"
-                placeholder="Enter a new username" />
               <label for="new-description">New description</label>
               <input
                 type="text"
                 id="new-description"
                 placeholder="Enter a new description here" />
-              <label for="new-password">New password</label>
-              <input
-                type="password"
-                id="new-password"
-                placeholder="Enter new password here" />
               <label for="">Change your photo</label>
               <a class="btn btn-blue-light" href="">Update photo</a>
               <div class="flex-container">
-                <button class="btn btn-blue" type="submit">Save changes</button>
+                <button id="update-profile" class="btn btn-blue" type="submit">
+                  Save changes
+                </button>
                 <a id="cancel-edit-profile" class="btn btn-red">Cancel</a>
               </div>
             </form>
@@ -175,14 +152,23 @@
         </section>
       </div>
 
-      <!-- Search -->
+      <!-- 
+      Search
+       -->
+
       <section class="flex-column-container right-container">
         <div class="btn btn-blue-light flex-container search">
-          <img class="icons" src="images/search-icon.webp" alt="" />
-          <input placeholder="Search Twitter" />
+          <img
+            id="search-btn"
+            class="icons search-icon"
+            src="images/search-icon.webp"
+            alt="" />
+          <input id="search-input" placeholder="Search Twitter" />
         </div>
-
-        <div class="flex-column-container search-results hidden"></div>
+        <!-- Search results box -->
+        <div
+          id="search-results-box"
+          class="flex-column-container search-results hidden"></div>
 
         <div>
           <a href="">Terms of Service</a>
