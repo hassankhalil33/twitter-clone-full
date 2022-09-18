@@ -43,16 +43,14 @@ function imageRetrieve($id, $type, $mysql) {
         die("error: " . $mysql -> error);
     };
 
-    $check -> execute();
-    $array = $check -> get_result();
+    $query -> execute();
+    $array = $query -> get_result();
 
     $response = [];
     $response[] = $array -> fetch_assoc();
 
-    echo json_encode($response);
-
-    $photoAddress = dirname(__FILE__) . "../" . $response[0]["pic"];
-    file_get_contents($photoAddress, $image);
+    $photoAddress =  $response[0]["pic"];
+    $image = file_get_contents($photoAddress);
     $imageEncoded = base64_encode($image);
     
     return ("data:image/png;base64," . $imageEncoded);
