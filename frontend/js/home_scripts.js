@@ -155,6 +155,7 @@ window.onload = () => {
         block.classList.add("hidden");
       }
     } else {
+      localStorage.setItem("visited", user);
       if (setupProfile.classList.contains("hidden")) {
         follow.classList.remove("hidden");
         block.classList.remove("hidden");
@@ -220,6 +221,29 @@ window.onload = () => {
       .catch(error => console.log(error));
   }
 
+  async function followUser() {
+    const data = {
+      userName: localStorage.getItem("username"),
+      followed: localStorage.getItem("visited"),
+    };
+    await fetch("http://localhost/fswo5/twitter-clone/follow_user.php", {
+      method: "POST",
+      body: new URLSearchParams(data),
+    })
+      .then(respone => respone.json())
+      .then(data => {
+        console.log(data)
+        if (follow.innerText == "Follow") {
+          follow.innerText = "Followed";
+          follow.classList.add("followed")
+        } else {
+          follow.innerText = "Follow";
+          follow.classList.remove("followed")
+        }
+      })
+      .catch(error => console.log(error));
+  }
+
   //
   if (isAuthorized()) {
     viewFeed();
@@ -247,4 +271,9 @@ window.onload = () => {
   });
 
   searchBtn.addEventListener("click", search);
+
+  follow.addEventListener("click", event => {
+    event.preventDefault();
+    followUser();
+  });
 };
