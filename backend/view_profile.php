@@ -9,10 +9,25 @@ include("connection.php");
 
 $userName = $_GET["userName"];
 
+function returnId($user, $mysql) {
+    $check = $mysql -> prepare(
+        "SELECT id FROM users
+        WHERE username = ?"
+    );
+
+    $check -> bind_param("s", $user);
+    $check -> execute();
+    $array = $check -> get_result();
+
+    $response = [];
+    $response[] = $array -> fetch_assoc();
+
+    return $response[0]["id"];
+};
+
 function getData($user, $mysql) {
     $query = $mysql -> prepare(
-        "SELECT username, f_name, l_name, `description`,
-        profile_pic, date_of_joining 
+        "SELECT username, f_name, l_name, `description`, date_of_joining 
         FROM users WHERE username = '$user'"
     );
     
@@ -71,6 +86,8 @@ $allData = array_merge($data, $follows);
 $allData[0]["following"] = $allData[1]["following"];
 $allData[0]["followers"] = $allData[1]["followers"];
 unset($allData[1]);
+$id = returnId($userName, $mysql);
+$image = imageRetrieve($id, "profile", $mysql);
 
 echo json_encode($allData);
 

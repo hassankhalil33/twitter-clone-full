@@ -4,6 +4,7 @@ header("Access-Control-Allow-Origin: *");
 header("Access-Control-Allow-Headers: *");
 
 include("connection.php");
+include("image_handler.php");
 
 // Init Variables
 
@@ -18,7 +19,7 @@ $userName = $_POST["userName"];
 //Get User Data
 function getData($user, $mysql) {
     $query = $mysql -> prepare(
-        "SELECT f_name, l_name, `description`, profile_pic FROM users
+        "SELECT id, f_name, l_name, `description`, profile_pic FROM users
         WHERE username = '$user'"
     );
     
@@ -35,10 +36,10 @@ function getData($user, $mysql) {
 };
 
 // Update Data
-function updateData($user, $mysql, $name, $last, $desc, $pic) {
+function updateData($user, $mysql, $name, $last, $desc) {
     $query = $mysql -> prepare(
         "UPDATE users SET f_name = '$name', l_name = '$last',
-        `description` = '$desc', profile_pic = '$pic'
+        `description` = '$desc'
         WHERE username = '$user'"
     );
     
@@ -49,6 +50,7 @@ function updateData($user, $mysql, $name, $last, $desc, $pic) {
 // Main
 
 $json = getData($userName, $mysql);
+$id = $json[0]["id"];
 $dbName = $json[0]["f_name"];
 $dbLast = $json[0]["l_name"];
 $dbPhoto = $json[0]["profile_pic"];
@@ -67,9 +69,8 @@ if (isset($lastName)) {
 };
 
 if (isset($photo)) {
-    $updatePhoto = $photo;
-} else {
-    $updatePhoto = $dbPhoto;
+    $decodedImage = imageDecode($photo);
+    imageSave($decodedImage, $id, "profile", $mysql);
 };
 
 if (isset($description)) {
@@ -78,6 +79,6 @@ if (isset($description)) {
     $updateDesc = $dbDesc;
 };
 
-updateData($userName, $mysql, $updateName, $updateLast, $updatePhoto, $updateDesc);
+updateData($userName, $mysql, $updateName, $updateLast, $updateDesc);
 
 ?>
