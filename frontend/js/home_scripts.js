@@ -13,6 +13,7 @@ window.onload = () => {
   const nameArray = document.querySelectorAll(".name");
   const usernameArray = document.querySelectorAll(".username");
   let fullName, username;
+  const cards = document.getElementById("cards");
 
   // Functions
   const switchToHome = () => {
@@ -82,7 +83,33 @@ window.onload = () => {
         fullName = `${data[0][0].f_name} ${data[0][0].l_name}`;
         username = `@${data[0][0].username}`;
         displayData();
-        console.log(data[1][0]);
+        let card = ``;
+        data[1].map(values => {
+          card += `<div class="flex-container card">
+          <img class="card-pp" src="images/pp.png" alt="" />
+          <div class="flex-column-container card-content">
+            <div class="flex-container card-head">
+              <p class="nav-name">${values.f_name} ${values.l_name}</p>
+              <p class="nav-username">${values.username}</p>
+              <p class="date">${values.time}</p>
+            </div>
+            <p class="card-text">
+              ${values.text}
+            </p>
+            <img
+              class="card-img"
+              src="images/twitter-cover-page.png"
+              alt="" />
+            <div class="flex-container">
+              <a href="">
+                <img class="icons" src="images/like-icon.png" alt="" />
+              </a>
+              <p>${values.likes}</p>
+            </div>
+          </div>
+        </div>`;
+        });
+        cards.innerHTML = card;
       })
       .catch(error => console.log(error));
   }
@@ -91,6 +118,7 @@ window.onload = () => {
     nameArray.forEach(elt => (elt.innerText = fullName));
     usernameArray.forEach(elt => (elt.innerText = username));
   };
+  
   //
   if (isAuthorized()) {
     view_feed();
