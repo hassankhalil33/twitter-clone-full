@@ -89,7 +89,7 @@ window.onload = () => {
       method: "POST",
       body: new URLSearchParams(data),
     })
-      .then(respone => respone.json())
+      .then(response => response.json())
       .then(data => {
         return data;
       })
@@ -105,7 +105,7 @@ window.onload = () => {
       method: "POST",
       body: new URLSearchParams(data),
     })
-      .then(respone => respone.json())
+      .then(response => response.json())
       .then(data => {
         nameNav.innerText = `${data[0][0].f_name} ${data[0][0].l_name}`;
         usernameNav.innerText = `@${data[0][0].username}`;
@@ -153,7 +153,7 @@ window.onload = () => {
     await fetch(
       `http://localhost/fswo5/twitter-clone/view_profile.php?userName=${user}`
     )
-      .then(respone => respone.json())
+      .then(response => response.json())
       .then(data => {
         profileName.forEach(pN => {
           pN.innerHTML = `${data[0].f_name} ${data[0].l_name}`;
@@ -202,7 +202,7 @@ window.onload = () => {
       method: "POST",
       body: new URLSearchParams(data),
     })
-      .then(respone => respone.json())
+      .then(response => response.json())
       .then(location.reload())
       .catch(error => console.log(error));
   }
@@ -218,7 +218,7 @@ window.onload = () => {
       method: "POST",
       body: new URLSearchParams(data),
     })
-      .then(respone => respone.json())
+      .then(response => response.json())
       .then(data => {
         let searchCard = ``;
         data.map(values => {
@@ -239,6 +239,7 @@ window.onload = () => {
             event.preventDefault();
             switchToProfile();
             viewProfile(s.children[0].children[1].children[1].innerText);
+            searchResultsBox.classList.add("hidden");
           });
         });
       })
@@ -255,15 +256,15 @@ window.onload = () => {
       method: "POST",
       body: new URLSearchParams(data),
     })
-      .then(respone => respone.json())
+      .then(response => response.json())
       .then(data => {
         console.log(data);
         if (follow.innerText == "Follow") {
-          follow.innerText = "Followed";
+          follow.innerText = "Unfollow";
           follow.classList.add("followed");
         } else {
           follow.innerText = "Follow";
-          follow.classList.remove("followed");
+          follow.classList.remove("Unfollow");
         }
       })
       .catch(error => console.log(error));
@@ -279,15 +280,15 @@ window.onload = () => {
       method: "POST",
       body: new URLSearchParams(data),
     })
-      .then(respone => respone.json())
+      .then(response => response.json())
       .then(data => {
         console.log(data);
-        if (block.innerText == "block") {
-          block.innerText = "blocked";
+        if (block.innerText == "Block") {
+          block.innerText = "Unblock";
           block.classList.add("blocked");
         } else {
-          block.innerText = "block";
-          block.classList.remove("blocked");
+          block.innerText = "Block";
+          block.classList.remove("Unblock");
         }
       })
       .catch(error => console.log(error));
@@ -303,7 +304,7 @@ window.onload = () => {
       method: "POST",
       body: new URLSearchParams(data),
     })
-      .then(respone => respone.json())
+      .then(response => response.json())
       .then(data => {
         console.log(data);
       })
@@ -320,7 +321,7 @@ window.onload = () => {
       method: "POST",
       body: new URLSearchParams(data),
     })
-      .then(respone => respone.json())
+      .then(response => response.json())
       .then(data => {
         console.log(data);
       })

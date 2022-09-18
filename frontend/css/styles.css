@@ -151,10 +151,10 @@ Register Page
 .register-signin:hover {
   text-decoration: none;
 }
-
 .cover-img-after {
   display: none;
 }
+
 /*
 Login page
 */
@@ -481,6 +481,10 @@ Home page
   justify-content: flex-start;
   align-items: center;
 }
+.search-icon {
+  cursor: pointer;
+  margin: 5px;
+}
 .search input {
   font-size: 18px;
   width: 80%;
@@ -494,7 +498,6 @@ Home page
   width: 15vw;
   background-color: #d3cccc;
 }
-
 .right-container div {
   font-size: 14px;
   color: #999999;
