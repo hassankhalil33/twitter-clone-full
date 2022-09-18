@@ -4,12 +4,14 @@ header("Access-Control-Allow-Origin: *");
 header("Access-Control-Allow-Headers: *");
 
 include("connection.php");
+include("image_handler.php");
 
 // Init Variables
 
 $firstName = $_POST["firstName"];
 $lastName = $_POST["lastName"];
-$photo = $_POST["photo"];
+$photo = imageDecode($_POST["photo"]);
+$dbPhoto = imageRetrieve();
 $description = $_POST["description"];
 $userName = $_POST["userName"];
 
@@ -35,10 +37,10 @@ function getData($user, $mysql) {
 };
 
 // Update Data
-function updateData($user, $mysql, $name, $last, $desc, $pic) {
+function updateData($user, $mysql, $name, $last, $desc) {
     $query = $mysql -> prepare(
         "UPDATE users SET f_name = '$name', l_name = '$last',
-        `description` = '$desc', profile_pic = '$pic'
+        `description` = '$desc'
         WHERE username = '$user'"
     );
     
@@ -78,6 +80,7 @@ if (isset($description)) {
     $updateDesc = $dbDesc;
 };
 
-updateData($userName, $mysql, $updateName, $updateLast, $updateDesc, $updatePhoto);
+imageSave();
+updateData($userName, $mysql, $updateName, $updateLast, $updateDesc);
 
 ?>
