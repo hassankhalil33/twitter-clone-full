@@ -4,7 +4,6 @@ header("Access-Control-Allow-Origin: *");
 header("Access-Control-Allow-Headers: *");
 
 include("connection.php");
-include("connection.php");
 
 // Init Variables
 
@@ -12,7 +11,6 @@ $firstName = $_POST["firstName"];
 $lastName = $_POST["lastName"];
 $photo = $_POST["photo"];
 $description = $_POST["description"];
-$userToken = $_POST["token"];
 $userName = $_POST["userName"];
 
 // Functions

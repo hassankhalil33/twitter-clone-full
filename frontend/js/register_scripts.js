@@ -12,7 +12,7 @@ const lastName = document.getElementById("last-name");
 const userName = document.getElementById("username");
 const email = document.getElementById("email");
 const password = document.getElementById("password");
-
+const registerForm = document.querySelector(".register-form");
 
 // Functions
 
@@ -65,15 +65,30 @@ async function register() {
     .then(data => {
         if (data == "success") {
         alert("Registered Successfully");
+        registerForm.reset();
         } else {
         alert("Username / Email Already in Use");
         };
     });
 };
 
+function checkLogin() {
+    const token = localStorage.getItem("token");
+    const userName = localStorage.getItem("username");
+
+    if (!token && !userName) {
+        return;
+    } else {
+        location.replace("./feed.html");
+    }
+};
+
 // Script
 
+checkLogin();
+
 window.onload = () => {
+
     registerSignin.addEventListener("click", openSigninPopup);
     loginSignupBtn.addEventListener("click", closeSigninPopup);
     loginSignin.addEventListener("click", event => {
