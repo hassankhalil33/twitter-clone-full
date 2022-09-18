@@ -17,27 +17,29 @@
       <!-- Navigation Section -->
       <nav class="navigation">
         <img class="navigation-logo" src="images/twitter-logo.png" alt="" />
-        <a href="" class="flex-container nav-tab">
+        <a id="nav-home" href="" class="flex-container nav-tab">
           <img class="icons" src="images/home-black-icon.webp" alt="" />
+          <img class="icons hidden" src="images/home-grey-icon.jpg" alt="" />
           <span class="tab-selected">Home</span>
         </a>
-        <a href="" class="flex-container nav-tab">
+        <a id="nav-profile" href="" class="flex-container nav-tab">
           <img class="icons" src="images/grey-person-icon.jpg" alt="" />
+          <img class="icons hidden" src="images/black-person-icon.jpg" alt="" />
           <span class="tab-not-selected">Profile</span>
         </a>
         <a class="btn btn-blue btn-nav" href="">Tweet</a>
         <div class="flex-container pp-name-username">
           <img src="images/pp.png" alt="" />
           <div class="felx-column-container">
-            <p class="nav-name">Name</p>
-            <p class="nav-username">Username</p>
+            <p class="nav-name name">Name</p>
+            <p class="nav-username username">Username</p>
           </div>
         </div>
       </nav>
 
       <!-- Mid section -->
 
-      <div class="mid hidden">
+      <div id="home-page" class="mid">
         <!-- header -->
         <div class="header">
           <p>Home</p>
@@ -58,17 +60,47 @@
             </div>
           </form>
         </section>
+
+        <!-- Feed Tweets -->
+        <section class="feed">
+          <div class="flex-container card">
+            <img class="card-pp" src="images/pp.png" alt="" />
+            <div class="flex-column-container card-content">
+              <div class="flex-container card-head">
+                <p class="nav-name name"></p>
+                <p class="nav-username username"></p>
+                <p class="date">20/10/2022</p>
+              </div>
+              <p class="card-text">
+                this is the textthis is the textthis is the textthis is the
+                textthis is the textthis is the textthis is the textthis is the
+                textthis is the textthis is the textthis is the textthis is the
+                text
+              </p>
+              <img
+                class="card-img"
+                src="images/twitter-cover-page.png"
+                alt="" />
+              <div class="flex-container">
+                <a href="">
+                  <img class="icons" src="images/like-icon.png" alt="" />
+                </a>
+                <p>15</p>
+              </div>
+            </div>
+          </div>
+        </section>
       </div>
 
-      <div class="mid">
+      <div id="profile-page" class="mid hidden">
         <!-- header -->
         <div class="header flex-container">
-          <span>
+          <span id="back-to-home">
             <img class="icons" src="images/arrow-back-icon.png" alt="" />
           </span>
           <div class="felx-column-container">
-            <p class="nav-name">Name</p>
-            <p class="nav-username">Username</p>
+            <p class="nav-name name">Name</p>
+            <p class="nav-username username">Username</p>
           </div>
         </div>
         <!-- profile info -->
@@ -76,11 +108,16 @@
           <div class="profile-cover-photo"></div>
           <div class="flex-container profile-img-btn">
             <img class="profile-pp" src="images/pp.png" alt="" />
-            <a class="btn btn-white" href="">Set up profile</a>
+
+            <a class="btn btn-white hidden" href="">Follow</a>
+            <a class="btn btn-red hidden" href="">Block</a>
+            <a id="setup-profile" class="btn btn-white" href="">
+              Set up profile
+            </a>
           </div>
           <div class="flex-column-container profile-info">
-            <p class="profile-name">Name</p>
-            <p>Username</p>
+            <p class="profile-name name">Name</p>
+            <p class="username">Username</p>
             <p>Description</p>
             <p>Joined on</p>
             <div class="flex-container profile-numbers">
@@ -94,6 +131,47 @@
               </a>
             </div>
           </div>
+
+          <!-- Edit profile popup -->
+          <div
+            id="edit-profile-container"
+            class="flex-column-container edit-profile-container popup popup-hidden">
+            <h3>
+              Update your profile (To keep the old information in a field leave
+              it blank)
+            </h3>
+            <form action="" class="flex-column-container">
+              <label for="new-first-name">Enter new Name</label>
+              <div class="flex-container name-container">
+                <input
+                  id="new-first-name"
+                  type="text"
+                  placeholder="First name" />
+                <input id="new-last-name" type="text" placeholder="Last name" />
+              </div>
+              <label for="new-username">New username</label>
+              <input
+                type="text"
+                id="new-username"
+                placeholder="Enter a new username" />
+              <label for="new-description">New description</label>
+              <input
+                type="text"
+                id="new-description"
+                placeholder="Enter a new description here" />
+              <label for="new-password">New password</label>
+              <input
+                type="password"
+                id="new-password"
+                placeholder="Enter new password here" />
+              <label for="">Change your photo</label>
+              <a class="btn btn-blue-light" href="">Update photo</a>
+              <div class="flex-container">
+                <button class="btn btn-blue" type="submit">Save changes</button>
+                <a id="cancel-edit-profile" class="btn btn-red">Cancel</a>
+              </div>
+            </form>
+          </div>
         </section>
       </div>
 
@@ -103,6 +181,8 @@
           <img class="icons" src="images/search-icon.webp" alt="" />
           <input placeholder="Search Twitter" />
         </div>
+
+        <div class="flex-column-container search-results hidden"></div>
 
         <div>
           <a href="">Terms of Service</a>
@@ -115,5 +195,6 @@
         </div>
       </section>
     </div>
+    <script src="js/home_scripts.js" type="text/javascript"></script>
   </body>
 </html>

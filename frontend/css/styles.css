@@ -12,7 +12,6 @@ a:hover {
   text-decoration: underline;
 }
 .container {
-  /* padding: 1%; */
   margin: auto;
   width: 100%;
 }
@@ -30,8 +29,8 @@ a:hover {
 .btn {
   border-radius: 20px;
   border: none;
-  padding: 2% 6%;
-  margin-top: 1%;
+  padding: 10px 30px;
+  margin-top: 10px;
   cursor: pointer;
 }
 .btn-blue {
@@ -47,12 +46,20 @@ a:hover {
   background-color: #e0f1f0;
   color: #999999;
 }
+.btn-red {
+  color: #1d9bf0;
+  border: solid 1px #999999;
+}
+.btn-red:hover {
+  color: red;
+  background-color: #e0f1f0;
+}
 .mid {
   width: 60vw;
   margin-left: 20vw;
 }
 .header {
-  height: 8vh;
+  height: 50px;
   width: 100%;
   position: fixed;
   background-color: white;
@@ -65,6 +72,9 @@ a:hover {
 .hidden {
   display: none;
 }
+.popup-hidden {
+  visibility: hidden;
+}
 
 /* 
 Register Page
@@ -73,11 +83,12 @@ Register Page
 /* Hero */
 .signup-img {
   width: 55vw;
-  height: 500px;
+  height: 100vh;
 }
 .register-content {
-  flex: 0 0 40vw;
-  height: 500px;
+  padding-left: 20px;
+  min-height: 100vh;
+  justify-content: center;
 }
 .register-logo-twitter {
   width: 24px;
@@ -86,12 +97,12 @@ Register Page
   margin-left: 0;
 }
 .register-title {
-  font-size: 36px;
+  font-size: 45px;
   font-weight: bolder;
   margin: 10px 0;
 }
 .register-subtitle {
-  font-size: 20px;
+  font-size: 30px;
   font-weight: bold;
   margin-bottom: 20px;
 }
@@ -99,38 +110,51 @@ Register Page
 /* Register form */
 .register-form {
   width: 100%;
+  padding-right: 20px;
 }
 .register-form label {
-  padding: 1%;
-  font-size: 12px;
+  padding: 6px 0;
+  font-size: 16px;
 }
 .register-form input {
-  width: 82%;
-  padding: 1%;
-  font-size: 9px;
+  width: 100%;
+  padding: 6px;
+  font-size: 12px;
   border: 1px solid #999999;
   border-radius: 4px;
+}
+.name-container {
+  width: 100%;
 }
 
 /* Register paragraph */
 .register-parag1 {
-  margin: 1% 0;
-  width: 82%;
-  font-size: 9px;
+  margin: 7px 0;
+  width: 90%;
+  font-size: 12px;
 }
 .register-parag1 a {
-  text-decoration: none;
   color: #1d9bf0;
 }
 .register-parag1 a:hover {
   text-decoration: underline;
 }
 .register-parag2 {
-  font-size: 12px;
+  font-size: 16px;
   font-weight: bold;
-  margin: 7% 0 4%;
+  margin: 20px 0 15px;
+}
+.register-signin {
+  font-size: 16px;
+  padding: 7px 28px;
+}
+.register-signin:hover {
+  text-decoration: none;
 }
 
+.cover-img-after {
+  display: none;
+}
 /*
 Login page
 */
@@ -140,9 +164,10 @@ Login page
   margin: 10px auto 0;
 }
 .login-container {
-  width: 50vw;
-  height: 300px;
+  width: 40vw;
+  height: auto;
   border-radius: 10px;
+  padding-bottom: 50px;
 }
 .login-title {
   margin: 20px auto;
@@ -153,13 +178,13 @@ Login page
   margin-bottom: 20px;
 }
 .login-form label {
-  padding: 2%;
-  font-size: 12px;
+  padding: 6px 0;
+  font-size: 18px;
 }
 .login-form input {
   width: 100%;
-  padding: 2%;
-  font-size: 9px;
+  padding: 6px;
+  font-size: 12px;
   border: 1px solid #999999;
   border-radius: 4px;
 }
@@ -169,21 +194,25 @@ Login page
   font-weight: bold;
 }
 .login-container a {
-  text-decoration: none;
   color: #1d9bf0;
-}
-.login-container a:hover {
-  text-decoration: underline;
 }
 .popup {
   position: absolute;
-  top: 10vh;
-  left: 20vw;
+  top: 20vh;
+  left: 30vw;
   background-color: white;
-  visibility: hidden;
 }
-.popup-visible {
-  visibility: visible;
+
+/* Register footer */
+.register-footer {
+  font-size: 12px;
+  color: #6e6b6b;
+  padding: 15px;
+  text-align: center;
+}
+.register-footer a {
+  color: #6e6b6b;
+  padding-right: 16px;
 }
 
 /*  
@@ -207,7 +236,6 @@ Home page
   margin-left: 3%;
 }
 .nav-tab {
-  font-size: 12px;
   width: 13vw;
   border-radius: 8px;
   padding: 3%;
@@ -218,7 +246,6 @@ Home page
 }
 .navigation span {
   padding-left: 5px;
-  align-self: center;
 }
 .tab-selected {
   color: black;
@@ -236,12 +263,11 @@ Home page
   background-color: #1a8cd8;
 }
 .pp-name-username {
-  font-size: 12px;
   width: 13vw;
 }
 .pp-name-username img {
-  width: 30px;
-  height: 30px;
+  width: 40px;
+  height: 40px;
   padding: 0;
   border-radius: 36px;
   display: inline-block;
@@ -250,21 +276,19 @@ Home page
   align-self: center;
 }
 .nav-name {
-  font-size: 12px;
-  width: 9vw;
+  font-size: 16px;
   color: black;
   font-weight: bold;
 }
 .nav-username {
-  font-size: 10px;
-  width: 9vw;
+  font-size: 16px;
   color: #999999;
 }
 
 /* Tweet */
 .home-tweet {
-  height: 126px;
-  margin-top: 8vh;
+  height: auto;
+  margin-top: 50px;
   border-bottom: 1px solid #999999;
 }
 .home-tweet > img {
@@ -280,12 +304,12 @@ Home page
   border: none;
   padding-top: 20px;
   flex: 1 0 80%;
-  font-size: 12px;
+  font-size: 18px;
   border-bottom: #999999 1px solid;
 }
 .home-tweet-form div {
   width: 100%;
-  height: 40px;
+  height: auto;
   justify-content: space-between;
   align-items: center;
 }
@@ -293,8 +317,8 @@ Home page
   cursor: pointer;
 }
 .home-tweet-btn {
-  padding: 0 3%;
-  margin-right: 1.5vw;
+  margin-right: 30px;
+  margin-bottom: 10px;
   align-self: flex-start;
 }
 .home-tweet-btn:hover {
@@ -302,9 +326,55 @@ Home page
   background-color: #1a8cd8;
 }
 
+/* Feed tweets */
+.feed {
+  width: 60vw;
+}
+.card {
+  padding: 10px 30px 10px 10px;
+  border-bottom: 1px solid #999999;
+  font-size: 18px;
+}
+.card-pp {
+  width: 40px;
+  height: 40px;
+  padding: 0;
+  border-radius: 36px;
+}
+.card-content {
+  padding-left: 10px;
+}
+
+.card-head {
+  margin-bottom: 10px;
+}
+.card-head p {
+  padding-right: 10px;
+}
+.card-img {
+  width: 100%;
+  margin: 10px 0;
+}
+.date {
+  font-size: 16px;
+  color: #999999;
+}
+.card-text {
+  margin-bottom: 10px;
+}
+
 /* Profile */
+.header span {
+  padding: 10px;
+}
+.header span:hover {
+  cursor: pointer;
+}
+.header div {
+  align-self: center;
+}
 .profile-info-section {
-  font-size: 12px;
+  font-size: 16px;
   color: #999999;
   border-bottom: #999999 1px solid;
 }
@@ -347,6 +417,51 @@ Home page
   color: black;
   font-weight: bold;
 }
+.edit-profile-container {
+  width: 40vw;
+  height: auto;
+  border-radius: 10px;
+  padding-bottom: 50px;
+  color: black;
+}
+.edit-profile-container h3 {
+  margin: 20px auto;
+  text-align: center;
+  font-size: 16px;
+}
+.edit-profile-container form {
+  width: 100%;
+  padding: 0 60px;
+  margin-bottom: 20px;
+}
+.edit-profile-container label {
+  padding: 6px 0;
+  font-size: 18px;
+}
+.edit-profile-container input {
+  width: 100%;
+  padding: 6px;
+  font-size: 12px;
+  border: 1px solid #999999;
+  border-radius: 4px;
+}
+.edit-profile-container form > a {
+  margin-top: 0px;
+  color: black;
+}
+.edit-profile-container form > a:hover {
+  color: #1a8cd8;
+}
+.edit-profile-container form a {
+  font-size: 12px;
+}
+.edit-profile-container form a:hover {
+  text-decoration: none;
+}
+.edit-profile-container div {
+  justify-content: space-evenly;
+  width: 100%;
+}
 
 /* Right section */
 .right-container {
@@ -357,7 +472,7 @@ Home page
   left: 80vw;
   justify-content: space-between;
   align-items: center;
-  padding: 3.5vw;
+  padding: 20px;
   text-align: center;
 }
 .search {
@@ -367,18 +482,39 @@ Home page
   align-items: center;
 }
 .search input {
-  font-size: 8px;
+  font-size: 18px;
   width: 80%;
   background-color: inherit;
   border: none;
   border-radius: inherit;
   padding: 5px 3px;
 }
+.search-results {
+  height: 60vh;
+  width: 15vw;
+  background-color: #d3cccc;
+}
 
 .right-container div {
-  font-size: 12px;
+  font-size: 14px;
   color: #999999;
 }
 .right-container div a {
   color: #999999;
+}
+
+/* Responsiveness */
+@media only screen and (max-width: 1000px) {
+  .signup-img {
+    display: none;
+  }
+  .register-content {
+    width: 70vw;
+  }
+  .cover-img-after {
+    display: block;
+    width: 100%;
+    margin: 20px 0;
+    padding-right: 20px;
+  }
 }
