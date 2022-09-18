@@ -316,6 +316,7 @@ window.onload = () => {
     const data = {
       userName: localStorage.getItem("username"),
       text: tweetTextarea.value,
+      image: null,
     };
     await fetch("http://localhost/fswo5/twitter-clone/post_tweet.php", {
       method: "POST",
