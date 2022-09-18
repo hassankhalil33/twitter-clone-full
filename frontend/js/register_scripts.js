@@ -1,12 +1,21 @@
-// Variables
+// Init Variables
+
 const registerSignin = document.getElementById("register-signin");
 const signinContainer = document.getElementById("signin-container");
 const loginSignupBtn = document.getElementById("login-signup-btn");
 const identificationInput = document.getElementById("identification-input");
 const passwordInput = document.getElementById("password-input");
 const loginSignin = document.getElementById("login-signin");
+const registerMe = document.getElementById("register-me");
+const firstName = document.getElementById("first-name");
+const lastName = document.getElementById("last-name");
+const userName = document.getElementById("username");
+const email = document.getElementById("email");
+const password = document.getElementById("password");
+
 
 // Functions
+
 const openSigninPopup = () => {
     signinContainer.classList.toggle("popup-hidden");
 };
@@ -39,6 +48,29 @@ async function login() {
     });
 };
 
+async function register() {
+    const data = {
+    userName: userName.value,
+    password: password.value,
+    firstName: firstName.value,
+    lastName: lastName.value,
+    email: email.value,
+    };
+
+    await fetch("http://localhost/fswo5/twitter-clone/register.php", {
+    method: "POST",
+    body: new URLSearchParams(data),
+    })
+    .then(respone => respone.json())
+    .then(data => {
+        if (data == "success") {
+        alert("Registered Successfully");
+        } else {
+        alert("Username / Email Already in Use");
+        };
+    });
+};
+
 // Script
 
 window.onload = () => {
@@ -47,5 +79,10 @@ window.onload = () => {
     loginSignin.addEventListener("click", event => {
         event.preventDefault();
         login();
+    });
+
+    registerMe.addEventListener("click", event => {
+        event.preventDefault();
+        register();
     });
 };
