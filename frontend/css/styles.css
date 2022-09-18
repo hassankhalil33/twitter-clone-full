@@ -341,11 +341,11 @@ Home page
   padding: 0;
   border-radius: 36px;
 }
-.card-content{
+.card-content {
   padding-left: 10px;
 }
 
-.card-head{
+.card-head {
   margin-bottom: 10px;
 }
 .card-head p {
@@ -355,9 +355,12 @@ Home page
   width: 100%;
   margin: 10px 0;
 }
-.date{
+.date {
   font-size: 16px;
   color: #999999;
+}
+.card-text {
+  margin-bottom: 10px;
 }
 
 /* Profile */
