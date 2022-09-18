@@ -207,6 +207,25 @@ window.onload = () => {
         .catch(error => console.log(error));
     }
 
+
+  // Fetch tweet_post api
+  async function tweetPost() {
+    const data = {
+      userName: localStorage.getItem("username"),
+      text: tweetTextarea.value,
+      image: null,
+    };
+    await fetch("http://localhost/fswo5/twitter-clone/post_tweet.php", {
+      method: "POST",
+      body: new URLSearchParams(data),
+    })
+      .then(response => response.json())
+      .then(data => {
+        console.log(data);
+      })
+      .catch(error => console.log(error));
+  }
+
     // Fetch search_user api
     async function search() {
         const data = {
@@ -245,6 +264,7 @@ window.onload = () => {
         })
         .catch(error => console.log(error));
     }
+
 
     // Fetch follow_user api
     async function followUser() {
@@ -301,23 +321,6 @@ window.onload = () => {
         tweetId: id,
         };
         await fetch("http://localhost/fswo5/twitter-clone/like_tweet.php", {
-        method: "POST",
-        body: new URLSearchParams(data),
-        })
-        .then(response => response.json())
-        .then(data => {
-            console.log(data);
-        })
-        .catch(error => console.log(error));
-    }
-
-    // Fetch tweet_post api
-    async function tweetPost() {
-        const data = {
-        userName: localStorage.getItem("username"),
-        text: tweetTextarea.value,
-        };
-        await fetch("http://localhost/fswo5/twitter-clone/post_tweet.php", {
         method: "POST",
         body: new URLSearchParams(data),
         })

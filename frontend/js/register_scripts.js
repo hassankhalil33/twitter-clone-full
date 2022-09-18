@@ -17,87 +17,86 @@ const registerForm = document.querySelector(".register-form");
 // Functions
 
 const openSigninPopup = () => {
-    signinContainer.classList.toggle("popup-hidden");
+  signinContainer.classList.toggle("popup-hidden");
 };
 
 const closeSigninPopup = () => {
-    signinContainer.classList.toggle("popup-visible");
+  signinContainer.classList.toggle("popup-visible");
 };
 
 async function login() {
-    const data = {
+  const data = {
     userName: identificationInput.value,
     password: passwordInput.value,
-    };
+  };
 
-    await fetch("http://localhost/fswo5/twitter-clone/login.php", {
+  await fetch("http://localhost/fswo5/twitter-clone/login.php", {
     method: "POST",
     body: new URLSearchParams(data),
-    })
+  })
     .then(respone => respone.json())
     .then(data => {
-        if (data == "username not found!") {
+      if (data == "username not found!") {
         alert("Wrong username!");
-        } else if (data == "incorrect password") {
+      } else if (data == "incorrect password") {
         alert("Incorrect password!");
-        } else {
+      } else {
         localStorage.setItem("token", data);
         localStorage.setItem("username", identificationInput.value);
         location.replace("./feed.html");
-        };
+      }
     });
-};
+}
 
 async function register() {
-    const data = {
+  const data = {
     userName: userName.value,
     password: password.value,
     firstName: firstName.value,
     lastName: lastName.value,
     email: email.value,
-    };
+  };
 
-    await fetch("http://localhost/fswo5/twitter-clone/register.php", {
+  await fetch("http://localhost/fswo5/twitter-clone/register.php", {
     method: "POST",
     body: new URLSearchParams(data),
-    })
+  })
     .then(respone => respone.json())
     .then(data => {
-        if (data == "success") {
+      if (data == "success") {
         alert("Registered Successfully");
         registerForm.reset();
-        } else {
+      } else {
         alert("Username / Email Already in Use");
-        };
+      }
     });
-};
+}
 
 function checkLogin() {
-    const token = localStorage.getItem("token");
-    const userName = localStorage.getItem("username");
+  const token = localStorage.getItem("token");
+  const userName = localStorage.getItem("username");
 
-    if (!token && !userName) {
-        return;
-    } else {
-        location.replace("./feed.html");
-    }
-};
+  if (!token && !userName) {
+    return;
+  } else {
+    location.replace("./feed.html");
+  }
+}
 
 // Script
 
 checkLogin();
 
 window.onload = () => {
+  registerSignin.addEventListener("click", openSigninPopup);
+  loginSignupBtn.addEventListener("click", closeSigninPopup);
+  loginSignin.addEventListener("click", event => {
+    event.preventDefault();
+    login();
+  });
 
-    registerSignin.addEventListener("click", openSigninPopup);
-    loginSignupBtn.addEventListener("click", closeSigninPopup);
-    loginSignin.addEventListener("click", event => {
-        event.preventDefault();
-        login();
-    });
-
-    registerMe.addEventListener("click", event => {
-        event.preventDefault();
-        register();
-    });
+  registerMe.addEventListener("click", event => {
+    event.preventDefault();
+    register();
+  });
 };
