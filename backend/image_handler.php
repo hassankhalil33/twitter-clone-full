@@ -6,21 +6,18 @@ function imageDecode($image) {
     return base64_decode(preg_replace('#^data:image/\w+;base64,#i', '', $image)); //stackoverflow
 };
 
-function imageDirectory($image, $id, $type) {
-    return dirname(__FILE__). "../images/" . $type . $id . ".png", $image;
-};
-
-function imageSave($image, $id, $type, $dir) {
-    file_put_contents($dir);
+function imageSave($image, $id, $type, $mysql) {
+    $photoAddress = dirname(__FILE__). "../images/" . $type . $id . ".png";
+    file_put_contents($photoAddress, $image);
 
     if($type == "profile") {
         $query = $mysql -> prepare(
-            "UPDATE users SET profile_picture = '$dir'
+            "UPDATE users SET profile_pic = '$photoAddress'
             WHERE id = '$id'");
     } else {
         $query = $mysql -> prepare(
             "INSERT INTO tweets(tweet_id, `image`)
-            VALUE ('$id', '$dir')");
+            VALUE ('$id', '$photoAddress')");
     };
 
     if ($query === false) {
