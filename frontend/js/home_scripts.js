@@ -12,16 +12,19 @@ window.onload = () => {
   const cancelProfileEdit = document.getElementById("cancel-edit-profile");
   const nameNav = document.getElementById("name-nav");
   const usernameNav = document.getElementById("username-nav");
-  let fullName, username;
   const cards = document.getElementById("cards");
   const profileName = document.querySelectorAll(".profile-name");
   const profileUsername = document.querySelectorAll(".profile-username");
-  const profileDescription = document.querySelectorAll(".profile-description");
+  const profileDescription = document.getElementById("profile-description");
   const profileDate = document.getElementById("profile-date");
   const profileFollowing = document.getElementById("profile-following");
   const profileFollowers = document.getElementById("profile-followers");
   const follow = document.getElementById("follow");
   const block = document.getElementById("block");
+  const newDescription = document.getElementById("new-description");
+  const newFirstName = document.getElementById("new-first-name");
+  const newLastName = document.getElementById("new-last-name");
+  const updateProfileBtn = document.getElementById("update-profile");
 
   // Functions
   const switchToHome = () => {
@@ -152,6 +155,23 @@ window.onload = () => {
     }
   }
 
+  async function updateProfile() {
+    const data = {
+      firstName: newFirstName.value,
+      lastName: newLastName.value,
+      description: newDescription.value,
+      photo: "",
+      userName: localStorage.getItem("username"),
+    };
+    await fetch("http://localhost/fswo5/twitter-clone/update_profile.php", {
+      method: "POST",
+      body: new URLSearchParams(data),
+    })
+      .then(respone => respone.json())
+      .then(location.reload())
+      .catch(error => console.log(error));
+  }
+
   //
   if (isAuthorized()) {
     viewFeed();
@@ -173,4 +193,8 @@ window.onload = () => {
     openEditProfilePopup();
   });
   cancelProfileEdit.addEventListener("click", closeEditProfilePopup);
+  updateProfileBtn.addEventListener("click", event => {
+    event.preventDefault();
+    updateProfile();
+  });
 };
