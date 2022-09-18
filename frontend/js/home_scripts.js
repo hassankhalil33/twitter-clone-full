@@ -50,7 +50,24 @@ window.onload = () => {
     editProfileContainer.classList.add("popup-hidden");
   };
 
+  async function isAuthorized() {
+    const data = {
+      userName: localStorage.getItem("username"),
+      token: localStorage.getItem("token"),
+    };
+    await fetch("http://localhost/fswo5/twitter-clone/authorized.php", {
+      method: "POST",
+      body: new URLSearchParams(data),
+    })
+      .then(respone => respone.json())
+      .then(data => {
+        return data;
+      })
+      .catch(error => console.log(error));
+  }
+
   //
+  if(isAuthorized()){console.log("autho")};
   navHome.addEventListener("click", event => {
     event.preventDefault();
     switchToHome();
