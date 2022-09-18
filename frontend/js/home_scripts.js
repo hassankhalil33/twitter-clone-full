@@ -25,6 +25,9 @@ window.onload = () => {
   const newFirstName = document.getElementById("new-first-name");
   const newLastName = document.getElementById("new-last-name");
   const updateProfileBtn = document.getElementById("update-profile");
+  const searchInput = document.getElementById("search-input");
+  const searchBtn = document.getElementById("search-btn");
+  const searchResultsBox = document.getElementById("search-results-box");
 
   // Functions
   const switchToHome = () => {
@@ -172,6 +175,35 @@ window.onload = () => {
       .catch(error => console.log(error));
   }
 
+  async function search() {
+    const data = {
+      userName: localStorage.getItem("username"),
+      searchQuery: searchInput.value,
+    };
+    searchResultsBox.classList.remove("hidden");
+    await fetch("http://localhost/fswo5/twitter-clone/search_user.php", {
+      method: "POST",
+      body: new URLSearchParams(data),
+    })
+      .then(respone => respone.json())
+      .then(data => {
+        let searchCard = ``;
+        data.map(values => {
+          searchCard += `<a href=""><div class="flex-container">
+          <img class="card-pp" src="images/pp.png" alt="" />
+          <div class="flex-column-container">
+            <p class="nav-name">${values.f_name} ${values.l_name}</p>
+            <p class="nav-username">@${values.username}</p>
+          </div>
+          </div></a>
+          `;
+          searchResultsBox.innerHTML = searchCard;
+        });
+        console.log(data);
+      })
+      .catch(error => console.log(error));
+  }
+
   //
   if (isAuthorized()) {
     viewFeed();
@@ -197,4 +229,6 @@ window.onload = () => {
     event.preventDefault();
     updateProfile();
   });
+
+  searchBtn.addEventListener("click", search);
 };
