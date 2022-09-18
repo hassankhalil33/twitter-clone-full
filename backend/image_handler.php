@@ -7,7 +7,7 @@ function imageDecode($image) {
 };
 
 function imageSave($image, $id, $type, $mysql) {
-    $photoAddress = dirname(__FILE__). "../images/" . $type . $id . ".png";
+    $photoAddress = dirname(__FILE__) . "../images/" . $type . $id . ".png";
     file_put_contents($photoAddress, $image);
     $postAddress = "images/" . $type . $id . ".png";
 
@@ -28,8 +28,34 @@ function imageSave($image, $id, $type, $mysql) {
     $query -> execute();
 };
 
-function imageRetrieve() {
-    return;
+function imageRetrieve($id, $type, $mysql) {
+    if($type == "profile") {
+        $query = $mysql -> prepare(
+            "SELECT profile_pic AS pic FROM users
+            WHERE id = '$id'");
+    } else {
+        $query = $mysql -> prepare(
+            "SELECT `image` AS pic FROM images
+            WHERE tweet_id = '$id'");
+    };
+
+    if ($query === false) {
+        die("error: " . $mysql -> error);
+    };
+
+    $check -> execute();
+    $array = $check -> get_result();
+
+    $response = [];
+    $response[] = $array -> fetch_assoc();
+
+    echo json_encode($response);
+
+    $photoAddress = dirname(__FILE__) . "../" . $response[0]["pic"];
+    file_get_contents($photoAddress, $image);
+    $imageEncoded = base64_encode($image);
+    
+    return ("data:image/png;base64," . $imageEncoded);
 };
 
 ?>
