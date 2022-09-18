@@ -28,6 +28,8 @@ window.onload = () => {
   const searchInput = document.getElementById("search-input");
   const searchBtn = document.getElementById("search-btn");
   const searchResultsBox = document.getElementById("search-results-box");
+  const tweetBtn = document.getElementById("tweet-btn");
+  const tweetTextarea = document.getElementById("tweet-textarea");
 
   // Functions
   const switchToHome = () => {
@@ -291,6 +293,22 @@ window.onload = () => {
       .catch(error => console.log(error));
   }
 
+  async function tweetPost() {
+    const data = {
+      userName: localStorage.getItem("username"),
+      text: tweetTextarea.value,
+    };
+    await fetch("http://localhost/fswo5/twitter-clone/post_tweet.php", {
+      method: "POST",
+      body: new URLSearchParams(data),
+    })
+      .then(respone => respone.json())
+      .then(data => {
+        console.log(data);
+      })
+      .catch(error => console.log(error));
+  }
+
   //
   if (isAuthorized()) {
     viewFeed();
@@ -327,5 +345,9 @@ window.onload = () => {
   block.addEventListener("click", event => {
     event.preventDefault();
     blockUser();
+  });
+  tweetBtn.addEventListener("click", event => {
+    event.preventDefault();
+    tweetPost();
   });
 };

@@ -49,14 +49,22 @@
           <img class="icons" src="images/pp.png" alt="" />
           <form class="flex-column-container home-tweet-form" action="">
             <textarea
+              id="tweet-textarea"
               placeholder="What's happening?"
+              required
               cols="30"
               rows="5"></textarea>
             <div class="flex-container">
               <span>
                 <img class="icons" src="images/attach-photo-icon.png" alt="" />
               </span>
-              <a class="btn btn-blue home-tweet-btn" href="">Tweet</a>
+              <button
+                id="tweet-btn"
+                class="btn btn-blue home-tweet-btn"
+                type="submit"
+                href="">
+                Tweet
+              </button>
             </div>
           </form>
         </section>
