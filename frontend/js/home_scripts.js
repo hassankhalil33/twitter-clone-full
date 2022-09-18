@@ -145,14 +145,24 @@ window.onload = () => {
         profileFollowers.innerText = data[0].followers;
       })
       .catch(error => console.log(error));
-    if (!isAuthorized()) {
-      setupProfile.classList.add("hidden");
-      follow.classList.remove("hidden");
-      block.classList.remove("hidden");
+    if (user == localStorage.getItem("username")) {
+      if (setupProfile.classList.contains("hidden")) {
+        setupProfile.classList.remove("hidden");
+        follow.classList.add("hidden");
+        block.classList.add("hidden");
+      } else {
+        follow.classList.add("hidden");
+        block.classList.add("hidden");
+      }
     } else {
-      setupProfile.classList.remove("hidden");
-      follow.classList.add("hidden");
-      block.classList.add("hidden");
+      if (setupProfile.classList.contains("hidden")) {
+        follow.classList.remove("hidden");
+        block.classList.remove("hidden");
+      } else {
+        setupProfile.classList.add("hidden");
+        follow.classList.remove("hidden");
+        block.classList.remove("hidden");
+      }
     }
   }
 
