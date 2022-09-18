@@ -10,8 +10,8 @@ window.onload = () => {
     "edit-profile-container"
   );
   const cancelProfileEdit = document.getElementById("cancel-edit-profile");
-  const nameArray = document.querySelectorAll(".name");
-  const usernameArray = document.querySelectorAll(".username");
+  const nameNav = document.getElementById("name-nav");
+  const usernameNav = document.getElementById("username-nav");
   let fullName, username;
   const cards = document.getElementById("cards");
   const profileName = document.querySelectorAll(".profile-name");
@@ -86,9 +86,8 @@ window.onload = () => {
     })
       .then(respone => respone.json())
       .then(data => {
-        fullName = `${data[0][0].f_name} ${data[0][0].l_name}`;
-        username = `@${data[0][0].username}`;
-        displayData();
+        nameNav.innerText = `${data[0][0].f_name} ${data[0][0].l_name}`;
+        usernameNav.innerText = `@${data[0][0].username}`;
         let card = ``;
         data[1].map(values => {
           card += `<div class="flex-container card">
@@ -120,11 +119,6 @@ window.onload = () => {
       .catch(error => console.log(error));
   }
 
-  const displayData = () => {
-    nameArray.forEach(elt => (elt.innerText = fullName));
-    usernameArray.forEach(elt => (elt.innerText = username));
-  };
-
   async function viewProfile() {
     await fetch(
       `http://localhost/fswo5/twitter-clone/view_profile.php?userName=${localStorage.getItem(
@@ -133,7 +127,6 @@ window.onload = () => {
     )
       .then(respone => respone.json())
       .then(data => {
-        console.log(data[0]);
         profileName.forEach(pN => {
           pN.innerHTML = `${data[0].f_name} ${data[0].l_name}`;
         });
