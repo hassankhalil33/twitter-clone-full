@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/reset.css" />
+    <link rel="stylesheet" href="css/styles.css" />
+    <link
+      href="https://fonts.googleapis.com/css?family=Roboto"
+      rel="stylesheet" />
+    <title>Home / Twitter</title>
+  </head>
+
+  <body>
+    <div class="container flex-container">
+      <!-- Navigation Section -->
+      <nav class="navigation">
+        <img class="navigation-logo" src="images/twitter-logo.png" alt="" />
+        <a id="nav-home" href="" class="flex-container nav-tab">
+          <img class="icons" src="images/home-black-icon.webp" alt="" />
+          <img class="icons hidden" src="images/home-grey-icon.jpg" alt="" />
+          <span class="tab-selected">Home</span>
+        </a>
+        <a id="nav-profile" href="" class="flex-container nav-tab">
+          <img class="icons" src="images/grey-person-icon.jpg" alt="" />
+          <img class="icons hidden" src="images/black-person-icon.jpg" alt="" />
+          <span class="tab-not-selected">Profile</span>
+        </a>
+        <a id="logout" class="btn btn-blue btn-nav" href="">Log out</a>
+        <div class="flex-container pp-name-username">
+          <img src="images/pp.png" alt="" />
+          <div class="felx-column-container">
+            <p id="name-nav" class="nav-name">Name</p>
+            <p id="username-nav" class="nav-username">Username</p>
+          </div>
+        </div>
+      </nav>
+
+      <!--       
+      Mid section
+       -->
+      <div id="home-page" class="mid">
+        <!-- header -->
+        <div class="header">
+          <p>Home</p>
+        </div>
+        <!-- Tweet -->
+        <section class="flex-container home-tweet">
+          <img class="icons" src="images/pp.png" alt="" />
+          <form
+            id="tweet-form"
+            class="flex-column-container home-tweet-form"
+            action="">
+            <textarea
+              id="tweet-textarea"
+              placeholder="What's happening?"
+              required
+              cols="30"
+              rows="5"></textarea>
+            <div class="flex-container">
+              <span>
+                <img class="icons" src="images/attach-photo-icon.png" alt="" />
+              </span>
+              <button
+                id="tweet-btn"
+                class="btn btn-blue home-tweet-btn"
+                type="submit"
+                href="">
+                Tweet
+              </button>
+            </div>
+          </form>
+        </section>
+        <!-- Feed Tweets -->
+        <section id="cards" class="feed"></section>
+      </div>
+
+      <!-- Profile page -->
+      <div id="profile-page" class="mid hidden">
+        <!-- header -->
+        <div class="header flex-container">
+          <span id="back-to-home">
+            <img class="icons" src="images/arrow-back-icon.png" alt="" />
+          </span>
+          <div class="felx-column-container">
+            <p class="nav-name profile-name">Name</p>
+            <p class="nav-username profile-username">Username</p>
+          </div>
+        </div>
+        <!-- profile info -->
+        <section class="profile-info-section">
+          <div class="profile-cover-photo"></div>
+          <div class="flex-container profile-img-btn">
+            <img class="profile-pp" src="images/pp.png" alt="" />
+
+            <a id="follow" class="btn btn-white hidden" href="">Follow</a>
+            <a id="block" class="btn btn-red hidden" href="">Block</a>
+            <a id="setup-profile" class="btn btn-white" href="">
+              Set up profile
+            </a>
+          </div>
+          <div class="flex-column-container profile-info">
+            <p class="profile-name">Name</p>
+            <p class="profile-username">Username</p>
+            <p id="profile-description">Description</p>
+            <p>
+              Joined on
+              <span id="profile-date"></span>
+            </p>
+            <div class="flex-container profile-numbers">
+              <a>
+                <span id="profile-following">1</span>
+                Following
+              </a>
+              <a>
+                <span id="profile-followers">2</span>
+                Followers
+              </a>
+            </div>
+          </div>
+
+          <!-- Edit profile popup -->
+          <div
+            id="edit-profile-container"
+            class="flex-column-container edit-profile-container popup popup-hidden">
+            <h3>
+              Update your profile (To keep the old information in a field leave
+              it blank)
+            </h3>
+            <form action="" class="flex-column-container">
+              <label for="new-first-name">Enter new Name</label>
+              <div class="flex-container name-container">
+                <input
+                  id="new-first-name"
+                  type="text"
+                  placeholder="First name" />
+                <input id="new-last-name" type="text" placeholder="Last name" />
+              </div>
+              <label for="new-description">New description</label>
+              <input
+                type="text"
+                id="new-description"
+                placeholder="Enter a new description here" />
+              <label for="">Change your photo</label>
+              <a class="btn btn-blue-light" href="">Update photo</a>
+              <div class="flex-container">
+                <button id="update-profile" class="btn btn-blue" type="submit">
+                  Save changes
+                </button>
+                <a id="cancel-edit-profile" class="btn btn-red">Cancel</a>
+              </div>
+            </form>
+          </div>
+        </section>
+      </div>
+
+      <!-- 
+      Search
+       -->
+
+      <section class="flex-column-container right-container">
+        <div class="btn btn-blue-light flex-container search">
+          <img
+            id="search-btn"
+            class="icons search-icon"
+            src="images/search-icon.webp"
+            alt="" />
+          <input id="search-input" placeholder="Search Twitter" />
+        </div>
+        <!-- Search results box -->
+        <div
+          id="search-results-box"
+          class="flex-column-container search-results hidden"></div>
+
+        <div>
+          <a href="">Terms of Service</a>
+          <a href="">Privacy Policy</a>
+          <a href="">Cookie Policy</a>
+          <a href="">Accessibility</a>
+          <a href="">Ads info</a>
+          <a href="">More...</a>
+          <p>© 2022 Twitter, Inc.</p>
+        </div>
+      </section>
+    </div>
+    <script src="js/home_scripts.js" type="text/javascript"></script>
+  </body>
+</html>
