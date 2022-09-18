@@ -66,8 +66,26 @@ window.onload = () => {
       .catch(error => console.log(error));
   }
 
+  async function view_feed() {
+    const data = {
+      userName: localStorage.getItem("username"),
+    };
+    await fetch("http://localhost/fswo5/twitter-clone/view_feed.php", {
+      method: "POST",
+      body: new URLSearchParams(data),
+    })
+      .then(respone => respone.json())
+      .then(data => {
+        console.log(data[0]);
+        console.log(data[1]);
+      })
+      .catch(error => console.log(error));
+  }
   //
-  if(isAuthorized()){console.log("autho")};
+  if (isAuthorized()) {
+    console.log("autho");
+    view_feed();
+  }
   navHome.addEventListener("click", event => {
     event.preventDefault();
     switchToHome();
