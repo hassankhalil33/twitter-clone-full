@@ -27,7 +27,7 @@
           <img class="icons hidden" src="images/black-person-icon.jpg" alt="" />
           <span class="tab-not-selected">Profile</span>
         </a>
-        <a class="btn btn-blue btn-nav" href="">Tweet</a>
+        <a id="logout" class="btn btn-blue btn-nav" href="">Log out</a>
         <div class="flex-container pp-name-username">
           <img src="images/pp.png" alt="" />
           <div class="felx-column-container">
@@ -48,7 +48,10 @@
         <!-- Tweet -->
         <section class="flex-container home-tweet">
           <img class="icons" src="images/pp.png" alt="" />
-          <form class="flex-column-container home-tweet-form" action="">
+          <form
+            id="tweet-form"
+            class="flex-column-container home-tweet-form"
+            action="">
             <textarea
               id="tweet-textarea"
               placeholder="What's happening?"
