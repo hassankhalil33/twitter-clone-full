@@ -16,7 +16,7 @@ function imageSave($image, $id, $type, $mysql) {
             WHERE id = '$id'");
     } else {
         $query = $mysql -> prepare(
-            "INSERT INTO tweets(tweet_id, `image`)
+            "INSERT INTO images(tweet_id, `image`)
             VALUE ('$id', '$photoAddress')");
     };
 
