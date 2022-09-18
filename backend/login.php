@@ -1,5 +1,8 @@
 <?php
 
+header("Access-Control-Allow-Origin: *");
+header("Access-Control-Allow-Headers: *");
+
 include("token.php");
 include("connection.php");
 
@@ -20,7 +23,7 @@ while($i = $array -> fetch_assoc()) {
 };
 
 if (! $response) {
-    die ("username not found!");
+    die(json_encode("username not found!"));
 };
 
 $dateJoined = $response[0]["date_of_joining"];
@@ -38,7 +41,7 @@ if ($password === $passwordStored) {
 
     echo json_encode(tokenEncode($tokenHeader, $tokenPayload, $SECRETKEY));
 } else {
-    echo "incorrect password";
+    echo json_encode("incorrect password");
 };
 
 ?>
