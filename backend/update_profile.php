@@ -78,6 +78,6 @@ if (isset($description)) {
     $updateDesc = $dbDesc;
 };
 
-updateData($userName, $mysql, $updateName, $updateLast, $updatePhoto, $updateDesc);
+updateData($userName, $mysql, $updateName, $updateLast, $updateDesc, $updatePhoto);
 
 ?>
