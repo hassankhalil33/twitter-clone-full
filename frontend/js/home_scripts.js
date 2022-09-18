@@ -1,5 +1,7 @@
 window.onload = () => {
+  //
   // Variables
+  //
   const navHome = document.getElementById("nav-home");
   const navProfile = document.getElementById("nav-profile");
   const homePage = document.getElementById("home-page");
@@ -31,7 +33,11 @@ window.onload = () => {
   const tweetBtn = document.getElementById("tweet-btn");
   const tweetTextarea = document.getElementById("tweet-textarea");
 
+  //
   // Functions
+  //
+
+  // Switch to home
   const switchToHome = () => {
     if (navHome.children[2].classList.contains("tab-not-selected")) {
       navHome.children[0].classList.toggle("hidden");
@@ -47,6 +53,7 @@ window.onload = () => {
     }
   };
 
+  // Switch to profile
   const switchToProfile = () => {
     if (navProfile.children[2].classList.contains("tab-not-selected")) {
       navHome.children[0].classList.toggle("hidden");
@@ -62,14 +69,17 @@ window.onload = () => {
     }
   };
 
+  // Open edit profile popup
   const openEditProfilePopup = () => {
     editProfileContainer.classList.remove("popup-hidden");
   };
 
+  // Close edit profile popup
   const closeEditProfilePopup = () => {
     editProfileContainer.classList.add("popup-hidden");
   };
 
+  // Fetch is_authorized api
   async function isAuthorized() {
     const data = {
       userName: localStorage.getItem("username"),
@@ -86,6 +96,7 @@ window.onload = () => {
       .catch(error => console.log(error));
   }
 
+  // Fetch view_feed api
   async function viewFeed() {
     const data = {
       userName: localStorage.getItem("username"),
@@ -137,6 +148,7 @@ window.onload = () => {
       .catch(error => console.log(error));
   }
 
+  // Fetch view_profile api
   async function viewProfile(user) {
     await fetch(
       `http://localhost/fswo5/twitter-clone/view_profile.php?userName=${user}`
@@ -177,6 +189,7 @@ window.onload = () => {
     }
   }
 
+  // Fetch update_profile api
   async function updateProfile() {
     const data = {
       firstName: newFirstName.value,
@@ -194,6 +207,7 @@ window.onload = () => {
       .catch(error => console.log(error));
   }
 
+  // Fetch search_user api
   async function search() {
     const data = {
       userName: localStorage.getItem("username"),
@@ -231,6 +245,7 @@ window.onload = () => {
       .catch(error => console.log(error));
   }
 
+  // Fetch follow_user api
   async function followUser() {
     const data = {
       userName: localStorage.getItem("username"),
@@ -254,6 +269,7 @@ window.onload = () => {
       .catch(error => console.log(error));
   }
 
+  // Fetch block_user api
   async function blockUser() {
     const data = {
       userName: localStorage.getItem("username"),
@@ -277,6 +293,7 @@ window.onload = () => {
       .catch(error => console.log(error));
   }
 
+  // Fetch like_tweet api
   async function likeTweet(id) {
     const data = {
       userName: localStorage.getItem("username"),
@@ -293,6 +310,7 @@ window.onload = () => {
       .catch(error => console.log(error));
   }
 
+  // Fetch tweet_post api
   async function tweetPost() {
     const data = {
       userName: localStorage.getItem("username"),
@@ -310,42 +328,59 @@ window.onload = () => {
   }
 
   //
+  //
+  //
   if (isAuthorized()) {
     viewFeed();
   }
 
+  //
   navHome.addEventListener("click", event => {
     event.preventDefault();
     switchToHome();
   });
+
+  //
   navProfile.addEventListener("click", event => {
     event.preventDefault();
     switchToProfile();
     viewProfile(localStorage.getItem("username"));
   });
+
+  //
   backToHome.addEventListener("click", switchToHome);
 
+  //
   setupProfile.addEventListener("click", event => {
     event.preventDefault();
     openEditProfilePopup();
   });
+
+  //
   cancelProfileEdit.addEventListener("click", closeEditProfilePopup);
+
+  //
   updateProfileBtn.addEventListener("click", event => {
     event.preventDefault();
     updateProfile();
   });
 
+  //
   searchBtn.addEventListener("click", search);
 
+  //
   follow.addEventListener("click", event => {
     event.preventDefault();
     followUser();
   });
 
+  //
   block.addEventListener("click", event => {
     event.preventDefault();
     blockUser();
   });
+
+  //
   tweetBtn.addEventListener("click", event => {
     event.preventDefault();
     tweetPost();
