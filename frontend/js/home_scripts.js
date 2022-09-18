@@ -235,13 +235,37 @@ window.onload = () => {
         console.log(data)
         if (follow.innerText == "Follow") {
           follow.innerText = "Followed";
-          follow.classList.add("followed")
+          follow.classList.add("followed");
         } else {
           follow.innerText = "Follow";
-          follow.classList.remove("followed")
+          follow.classList.remove("followed");
         }
       })
       .catch(error => console.log(error));
+  }
+
+  async function blockUser() {
+    const data = {
+      userName: localStorage.getItem("username"),
+      blocked: localStorage.getItem("visited"),
+    };
+    await fetch("http://localhost/fswo5/twitter-clone/block_user.php", {
+      method: "POST",
+      body: new URLSearchParams(data),
+    })
+      .then(respone => respone.json())
+      .then(data => {
+        console.log()
+        console.log(data);
+        if (block.innerText == "block") {
+          block.innerText = "blocked";
+          block.classList.add("blocked");
+        } else {
+          block.innerText = "block";
+          block.classList.remove("blocked");
+        }
+      })
+      // .catch(error => console.log(error));
   }
 
   //
@@ -275,5 +299,10 @@ window.onload = () => {
   follow.addEventListener("click", event => {
     event.preventDefault();
     followUser();
+  });
+  
+  block.addEventListener("click", event => {
+    event.preventDefault();
+    blockUser();
   });
 };
