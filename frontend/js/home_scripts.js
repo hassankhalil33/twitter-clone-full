@@ -14,6 +14,12 @@ window.onload = () => {
   const usernameArray = document.querySelectorAll(".username");
   let fullName, username;
   const cards = document.getElementById("cards");
+  const profileName = document.querySelectorAll(".profile-name");
+  const profileUsername = document.querySelectorAll(".profile-username");
+  const profileDescription = document.querySelectorAll(".profile-description");
+  const profileDate = document.getElementById("profile-date");
+  const profileFollowing = document.getElementById("profile-following");
+  const profileFollowers = document.getElementById("profile-followers");
 
   // Functions
   const switchToHome = () => {
@@ -70,7 +76,7 @@ window.onload = () => {
       .catch(error => console.log(error));
   }
 
-  async function view_feed() {
+  async function viewFeed() {
     const data = {
       userName: localStorage.getItem("username"),
     };
@@ -90,7 +96,7 @@ window.onload = () => {
           <div class="flex-column-container card-content">
             <div class="flex-container card-head">
               <p class="nav-name">${values.f_name} ${values.l_name}</p>
-              <p class="nav-username">${values.username}</p>
+              <p class="nav-username">@${values.username}</p>
               <p class="date">${values.time}</p>
             </div>
             <p class="card-text">
@@ -118,10 +124,33 @@ window.onload = () => {
     nameArray.forEach(elt => (elt.innerText = fullName));
     usernameArray.forEach(elt => (elt.innerText = username));
   };
-  
+
+  async function viewProfile() {
+    await fetch(
+      `http://localhost/fswo5/twitter-clone/view_profile.php?userName=${localStorage.getItem(
+        "username"
+      )}`
+    )
+      .then(respone => respone.json())
+      .then(data => {
+        console.log(data[0]);
+        profileName.forEach(pN => {
+          pN.innerHTML = `${data[0].f_name} ${data[0].l_name}`;
+        });
+        profileUsername.forEach(pU => {
+          pU.innerHTML = `@${data[0].username}`;
+        });
+        profileDescription.innerText = data[0].description;
+        profileDate.innerText = data[0].date_of_joining;
+        profileFollowing.innerText = data[0].following;
+        profileFollowers.innerText = data[0].followers;
+      })
+      .catch(error => console.log(error));
+  }
+
   //
   if (isAuthorized()) {
-    view_feed();
+    viewFeed();
   }
 
   navHome.addEventListener("click", event => {
@@ -131,6 +160,9 @@ window.onload = () => {
   navProfile.addEventListener("click", event => {
     event.preventDefault();
     switchToProfile();
+    if (isAuthorized()) {
+      viewProfile();
+    }
   });
   backToHome.addEventListener("click", switchToHome);
 

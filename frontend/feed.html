@@ -72,8 +72,8 @@
             <img class="icons" src="images/arrow-back-icon.png" alt="" />
           </span>
           <div class="felx-column-container">
-            <p class="nav-name name">Name</p>
-            <p class="nav-username username">Username</p>
+            <p class="nav-name profile-name">Name</p>
+            <p class="nav-username profile-username">Username</p>
           </div>
         </div>
         <!-- profile info -->
@@ -89,17 +89,20 @@
             </a>
           </div>
           <div class="flex-column-container profile-info">
-            <p class="profile-name name">Name</p>
-            <p class="username">Username</p>
-            <p>Description</p>
-            <p>Joined on</p>
+            <p class="profile-name">Name</p>
+            <p class="profile-username">Username</p>
+            <p id="profile-description">Description</p>
+            <p>
+              Joined on
+              <span id="profile-date"></span>
+            </p>
             <div class="flex-container profile-numbers">
               <a>
-                <span>1</span>
+                <span id="profile-following">1</span>
                 Following
               </a>
               <a>
-                <span>2</span>
+                <span id="profile-followers">2</span>
                 Followers
               </a>
             </div>
